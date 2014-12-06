@@ -3,7 +3,6 @@ defmodule Preview.SignupController do
   alias Preview.Repo
   import Preview.Router.Helpers
   alias Phoenix.Controller.Flash
-  import Preview.Mailer
   alias Preview.Mailer
 
   plug :action
