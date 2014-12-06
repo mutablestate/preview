@@ -53,7 +53,7 @@ An admin is able to login and view stored emails.
   @from : "my_email_address"
 
   subject: "Preview registration",
-  body: "Welcome to Preview! Follow me on Twitter @mutablstate."
+  body: "Welcome to Preview! Follow me on Twitter @mutablestate."
   ```
 
 5. Manually add a user to act as admin

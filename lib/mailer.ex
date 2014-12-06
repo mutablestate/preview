@@ -8,7 +8,7 @@ defmodule Preview.Mailer do
     send_email to: signup.email,
                from: @from,
                subject: "Preview registration",
-               body: "Welcome to Preview! Follow me on Twitter @mutablstate."
+               body: "Welcome to Preview! Follow me on Twitter @mutablestate."
   end
 end
 
