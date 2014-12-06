@@ -1,0 +1,114 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+$visual-grid: true;
+$visual-grid-color: #E6F6FF;
+$visual-grid-opacity: 0.4;
+
+$tablet: new-breakpoint(max-width 768px 2);
+$mobile: new-breakpoint(max-width 480px 1);
+
+header {
+  @include outer-container;
+  width: 100%;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+  position: relative;
+  padding: 0.4em;
+  @include clearfix();
+
+  @include media($mobile) {
+    height: auto;
+  }
+}
+
+div.container {
+  @include outer-container;
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+section {
+  &.logo {
+    @include outer-container;
+
+    //aside {
+      @include span-columns(4);
+      //@include background-image(url("../images/phoenix.png"));
+      //width: 300px;
+      //height: 41px;
+      //background-repeat: no-repeat, repeat-x;
+      //background-size: 300px 41px;
+      //float: right;
+    //}
+    article {
+      @include span-columns(8);
+      padding-top: 0.4em;
+      h3 {
+        font-family: 'Nothing You Could Do', cursive;
+      }
+    }
+  }
+  &.page {
+    aside {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(4);
+      padding: 0.4em;
+    }
+
+    article {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(8);
+      padding: 0.4em;
+    }
+  }
+}
+
+footer {
+  @include outer-container;
+  @include clearfix();
+  margin-top: 1em;
+}
+
+form {
+  &.inline {
+    aside {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(2 of 4);
+      padding: 0.4em;
+    }
+
+    article {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(6 of 12);
+      padding: 0.4em;
+    }
+
+    .submit {
+      @include span-columns(12);
+      padding: 0.4em;
+    }
+
+  }
+}

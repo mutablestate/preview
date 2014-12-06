@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,300,700'
+      rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Preview is a starter app built with Phoenix, an Elixir Web Framework. Sass support from the Bourbon family.">
+    <meta name="author" content="mutablestate">
+
+    <title>Preview Phoenix!</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="stylesheet" href="/css/flash.css">
+  </head>
+
+  <body>
+    <header>
+      <section class="logo">
+        <article>
+          <h3>Preview</h3>
+        </article>
+      </section>
+    </header>
+
+    <div class="container">
+      <div class=<%= flash_class(Flash.get(@conn)) %>>
+        <div class="row">
+          <%= flash_notice(Flash.get(@conn)) %>
+        </div>
+      </div>
+
+      <%= @inner %>
+    </div>
+
+    <footer>
+      <p><b>Built using a modern stack</b></p>
+      <ul>
+        <li>
+          <a href="http://elixir-lang.org" target="_blank">Elixir Language</a>
+        </li>
+        <li>
+          <a href="http://phoenixframework.org" target="_blank">Phoenix Framework</a>
+        </li>
+        <li>
+          <a href="http://bourbon.io" target="_blank">Bourbon family</a>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

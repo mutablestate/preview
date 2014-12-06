@@ -1,0 +1,5 @@
+<section class="page">
+  <div class="flash-error">
+    <p>Unauthorized!</p>
+  </div>
+</section>

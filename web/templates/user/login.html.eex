@@ -1,0 +1,21 @@
+<section class="page">
+  <h4>Login</h4>
+
+  <%= if @message do %>
+    <div class="alert alert-danger" role="alert"><%= @message %></div>
+  <% end %>
+
+  <form class="inline" action="/users/login" method="post">
+    <article>
+      <label for="" class="">Email</label>
+      <input placeholder="yourname@email.com" name="username" type="email" required="required">
+    </article>
+    <article>
+      <label for="" class="">Password</label>
+      <input name="password" class="" type="password">
+    </article>
+    <div class="submit">
+      <button class="" type="submit">Login</button>
+    </div>
+  </form>
+</section>
