@@ -10,7 +10,7 @@ An admin is able to login and view stored emails.
 
 1. Add a postgresql database for Preview to use
 
-By default we're using deploy as our db user and preview_development as our db name
+  By default we're using deploy as our db user and preview_development as our db name
 
   ```elixir    
   # web/models/repo.exs
@@ -33,9 +33,9 @@ By default we're using deploy as our db user and preview_development as our db n
   mix ecto.migrate Preview.Repo
   ```
 
-4. Setup mailer
+4. Setup the mailer
 
-Add your mailgun domain to the config for your environment
+  Add your mailgun domain to the config for your environment
 
   ```elixir    
   # config/dev.exs
@@ -45,7 +45,7 @@ Add your mailgun domain to the config for your environment
   mailgun_domain: "my_mailgun_domain"
   ```
 
-Customize the welcome message by changing these lines
+  Customize the welcome message by changing these lines
 
   ```elixir    
   # lib/mailer.ex
@@ -58,7 +58,7 @@ Customize the welcome message by changing these lines
 
 5. Manually add a user to act as admin
 
-Run `iex -S mix` from the Preview root directory
+  Run `iex -S mix` from the Preview root directory
 
   ```
   import Preview.User
@@ -73,8 +73,8 @@ Run `iex -S mix` from the Preview root directory
 
 6. UI Development
 
-Preview uses sass. You will need to compile it to css when modified.
-If you're new to this procedure give Koala a try.
+  Preview uses sass. You will need to compile it to css when modified.
+  If you're new to this procedure give [Koala](http://koala-app.com) a try.
 
 ## Goals
 
