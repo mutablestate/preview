@@ -9,7 +9,7 @@ defmodule Preview.SignupControllerTest do
       %Preview.Signup{email: "han@example.com",   id: 4} ]
   end
 
-  # signed_up?/1
+  # signed_up?/2
   test "recognises a repeat email signup" do
     signup = %Preview.Signup{email: "han@example.com", id: nil}
     assert SignupController.signed_up?(signup, signups) == true
