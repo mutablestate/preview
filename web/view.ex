@@ -18,13 +18,17 @@ defmodule Preview.View do
   end
 
   @doc """
-  Helper function receives the output from Flash.get(conn)
-  Maps the key to a template css class
+  Helper function to determine style class from a flash
+  Returns a string
 
-  Examples
-    iex> Flash.put(conn, :notice, "Message!")
-    iex> flash_class(Flash.get(@conn))
-    iex> "flash-notice"
+  ## Example
+
+    iex> alias Plug.Conn
+    iex> alias Phoenix.Controller.Flash
+    iex> conn = %Conn{private: %{plug_session: %{}}}
+    iex> Flash.put(conn, :error, "Message!") |> Flash.get |> Preview.View.flash_class
+    "flash-error"
+
   """
   def flash_class(map) do
     level = Map.keys(map)
@@ -39,15 +43,19 @@ defmodule Preview.View do
   end
 
   @doc """
-  Helper function takes output from Flash.get(conn)
-  Returns the message
+  Helper function to extract the message from a flash
+  Returns a list
 
-  Examples
-    iex> Flash.put(conn, :notice, "Message!")
-    iex> flash_notice(Flash.get(@conn))
-    iex> "Message!"
+  ## Example
+
+    iex> alias Plug.Conn
+    iex> alias Phoenix.Controller.Flash
+    iex> conn = %Conn{private: %{plug_session: %{}}}
+    iex> Flash.put(conn, :notice, "Message!") |> Flash.get |> Preview.View.flash_message
+    ["Message!"]
+
   """
-  def flash_notice(map) do
+  def flash_message(map) do
     map
     |> Map.values
     |> List.first
