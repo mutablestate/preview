@@ -4,7 +4,9 @@ defmodule Preview.Repo.Migrations.CreateSignups do
   def up do
     "CREATE TABLE signups(
     id serial primary key,
-    email varchar(75) unique
+    email varchar(75) unique,
+    created_at timestamp,
+    updated_at timestamp
     )"
   end
 
