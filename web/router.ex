@@ -10,17 +10,22 @@ defmodule Preview.Router do
     plug :accepts, ~w(json)
   end
 
-  scope "/" do
-    pipe_through :browser
+  scope "/", Preview do
+    pipe_through :browser # Use the default browser stack
 
-    get "/", Preview.PageController, :index, as: :root
+    get "/", PageController, :index, as: :root
 
-    get  "/users",        Preview.UserController, :index, as: :user
-    get  "/users/new",    Preview.UserController, :new,   as: :user
-    get  "/users/login",  Preview.UserController, :login, as: :user
-    post "/users/login",  Preview.UserController, :login_process, as: :user
-    get  "/users/logout", Preview.UserController, :logout, as: :user
+    get  "/users",        UserController, :index, as: :user
+    get  "/users/new",    UserController, :new,   as: :user
+    get  "/users/login",  UserController, :login, as: :user
+    post "/users/login",  UserController, :login_process, as: :user
+    get  "/users/logout", UserController, :logout, as: :user
 
-    post "/signups/register", Preview.SignupController, :register, as: :signup
+    post "/signups/register", SignupController, :register, as: :signup
   end
+
+  # Other scopes may use custom stacks.
+  # scope "/api", Preview do
+  #   pipe_through :api
+  # end
 end

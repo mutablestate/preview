@@ -5,19 +5,12 @@
 # is restricted to this project.
 use Mix.Config
 
-# Configures the router
-config :phoenix, Preview.Router,
+# Configures the endpoint
+config :preview, Preview.Endpoint,
   url: [host: "localhost"],
   http: [port: System.get_env("PORT")],
-  secret_key_base: "TFrRTVbErmZJ+7AAlrt8PVhBLsc93Bxmk+JnNyz17j0BFvZNRHuIth5xAtHZxVfBUwhXKdxjGRk3tS7DYml3og==",
-  catch_errors: true,
-  debug_errors: false,
-  error_controller: Preview.PageController
-
-# Session configuration
-config :phoenix, Preview.Router,
-  session: [store: :cookie,
-            key: "_preview_key"]
+  secret_key_base: "Gkv+bJOMTQXRek5HUTU2dG/VwvGdfjl2wM2OZKJUSWAzNqF4P8vHVLim66ZwN2KF",
+  debug_errors: false
 
 # Configures Elixir's Logger
 config :logger, :console,

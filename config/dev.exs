@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :phoenix, Preview.Router,
+config :preview, Preview.Endpoint,
   http: [port: System.get_env("PORT") || 4000],
   debug_errors: true
 
