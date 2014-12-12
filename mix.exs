@@ -23,7 +23,7 @@ defmodule Preview.Mixfile do
   # Type `mix help deps` for examples and options
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix"},
+      {:phoenix, "~> 0.7.2"},
       {:cowboy, "~> 1.0"},
       {:postgrex, "~> 0.6.0"},
       {:ecto, "~> 0.2.5"},

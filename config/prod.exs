@@ -11,10 +11,10 @@ use Mix.Config
 # Where those two env variables point to a file on
 # disk for the key and cert.
 
-config :phoenix, Preview.Router,
+config :preview, Preview.Endpoint,
   url: [host: "example.com"],
   http: [port: System.get_env("PORT")],
-  secret_key_base: "TFrRTVbErmZJ+7AAlrt8PVhBLsc93Bxmk+JnNyz17j0BFvZNRHuIth5xAtHZxVfBUwhXKdxjGRk3tS7DYml3og=="
+  secret_key_base: "Gkv+bJOMTQXRek5HUTU2dG/VwvGdfjl2wM2OZKJUSWAzNqF4P8vHVLim66ZwN2KF"
 
 config :logger,
   level: :info

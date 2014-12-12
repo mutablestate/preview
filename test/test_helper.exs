@@ -1,2 +1,2 @@
-Preview.Router.start
+Preview.Endpoint.start
 ExUnit.start
