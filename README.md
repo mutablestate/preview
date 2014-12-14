@@ -81,7 +81,7 @@ an admin user to login and view signed up emails.
 ## Deployment guides
 
 - [Deploy Phoenix Application to a Ubuntu Server](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
-- [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
+- [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
 - [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
 
 ## Notes
