@@ -2,9 +2,10 @@
 
 A pre-launch starter app written in Elixir Language on Phoenix Web Framework with the Bourbon family.
 
-It simply collects email addresses of interested visitors and sends them a welcome message.
+Use as a placeholder to market an upcoming site and gauge interest.
 
-An admin is able to login and view stored emails.
+It simply collects email addresses, sends an email welcome message and allows
+an admin user to login and view signed up emails.
 
 ## Setup
 
@@ -35,7 +36,7 @@ An admin is able to login and view stored emails.
 
 4. Setup the mailer
 
-  Add your mailgun domain to the config for your environment
+  Add your [mailgun](http://www.mailgun.com/) domain to the config for your environment
 
   ```elixir    
   # config/dev.exs
@@ -48,7 +49,7 @@ An admin is able to login and view stored emails.
   Customize the welcome message by changing these lines
 
   ```elixir    
-  # lib/mailer.ex
+  # lib/preview/mailer.ex
 
   @from : "my_email_address"
 
@@ -71,10 +72,21 @@ An admin is able to login and view stored emails.
   Repo.insert(user)
   ```
 
-6. UI Development
+6. Start the Phoenix server
 
-  Preview uses sass. You will need to compile it to css when modified.
-  If you're new to this procedure give [Koala](http://koala-app.com) a try.
+  Run `mix phoenix.start` from the Preview root directory
+
+  Visit http://localhost:4000 in your browser
+
+## Deployment guides
+
+- [Deploy Phoenix Application to a Ubuntu Server](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
+- [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
+- [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
+
+## Notes
+
+- Preview uses SASS. You will need to compile it to CSS when modified. If you're new to this procedure give [Koala](http://koala-app.com) a try.
 
 ## Goals
 
