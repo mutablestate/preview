@@ -15,7 +15,7 @@ defmodule Preview.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Preview, []},
-     applications: [:phoenix, :cowboy, :logger, :postgrex, :ecto, :mailgun]]
+     applications: [:phoenix, :cowboy, :logger, :postgrex, :ecto, :comeonin, :mailgun]]
   end
 
   # Specifies your project dependencies
@@ -27,6 +27,7 @@ defmodule Preview.Mixfile do
       {:cowboy, "~> 1.0"},
       {:postgrex, "~> 0.6.0"},
       {:ecto, "~> 0.2.5"},
+      {:comeonin, github: "elixircnx/comeonin"},
       {:mailgun, "~> 0.0.1"}
     ]
   end

@@ -1,4 +1,6 @@
-%{"cowboy": {:hex, :cowboy, "1.0.0"},
+%{"bcrypt": {:git, "git://github.com/opscode/erlang-bcrypt.git", "7515e80a5e16f62aef149709f6cc09995dd480be", []},
+  "comeonin": {:git, "git://github.com/elixircnx/comeonin.git", "4b8bc59a9108133eb16326f86b82c401653afaf1", []},
+  "cowboy": {:hex, :cowboy, "1.0.0"},
   "cowlib": {:hex, :cowlib, "1.0.0"},
   "decimal": {:hex, :decimal, "0.2.5"},
   "ecto": {:hex, :ecto, "0.2.5"},
