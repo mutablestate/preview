@@ -61,13 +61,13 @@ an admin user to login and view signed up emails.
 
   Run `iex -S mix` from the Preview root directory
 
-  ```
+  ```elixir
   import Preview.User
   import Preview.Repo
   alias Preview.Repo
   alias Preview.User
 
-  fields = [username: "my_email_address", password: Preview.Crypto.md5("my_password")]
+  fields = [username: "my_email_address", password: Comeonin.hash_password("my_password")]
   user = struct(User, fields)
   Repo.insert(user)
   ```
@@ -76,10 +76,11 @@ an admin user to login and view signed up emails.
 
   Run `mix phoenix.start` from the Preview root directory
 
-  Visit http://localhost:4000 in your browser
+  Visit [http://localhost:4000](http://localhost:4000) in your browser
 
 ## Deployment guides
 
+- [Official Phoenix Framework Guide](http://www.phoenixframework.org/v0.7.2/docs/deployment)
 - [Deploy Phoenix Application to a Ubuntu Server](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
 - [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
 - [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
