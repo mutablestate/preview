@@ -1,5 +1,7 @@
 defmodule Preview.Queries do
   import Ecto.Query
+  import Preview.Authenticate
+  alias Preview.Authenticate
 
   def all_users do
     query = from user in Preview.User,
@@ -16,12 +18,15 @@ defmodule Preview.Queries do
   end
 
   def login(username, password) do
-    md5_password = Preview.Crypto.md5(password)
     query = from user in Preview.User,
             where: user.username == ^username,
-            where: user.password == ^md5_password,
             select: user
 
-    Preview.Repo.one(query)
+    user = Preview.Repo.one(query)
+
+    authenticate_password(user, password)
   end
+
+  defp authenticate_password(nil, _),  do: nil
+  defp authenticate_password(user, password), do: Authenticate.password(user, password)
 end
