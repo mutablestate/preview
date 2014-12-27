@@ -1,28 +1,20 @@
 <section class="page">
-  <article>
-    <p>Preview is a starter app built with Phoenix, an Elixir Web Framework targeting full-featured, fault tolerant applications with realtime functionality.</p>
-
-    <%= if @message do %>
-      <div class="alert alert-danger" role="alert"><%= @message %></div>
-    <% end %>
-
-    <fieldset>
-      <form class="inline" action="/signups/register" method="post">
-        <article>
-          <label>Register for news and updates</label>
-          <input placeholder="yourname@email.com" name="email" type="email" required="required">
-        </article>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <h1>Preview</h1>
+        <p>Starter app built using Elixir, Phoenix and Bourbon</p>
+      </div>
+      <form class="signup" action="/signups/register" method="post">
+        <label>Register for news and updates</label>
+        <input placeholder="yourname@email.com" name="email" type="email" required="required">
         <div class="submit">
           <button class="" type="submit">Register</button>
         </div>
       </form>
-    </fieldset>
-  </article>
+    </div>
+  </div>
   <aside>
-    <ul>
-      <li>
-        <a href="<%= user_path(:login) %>" class="">Login</a>
-      </li>
-    </ul>
+    <a href="<%= user_path(:login) %>" class="button">Login</a>
   </aside>
 </section>

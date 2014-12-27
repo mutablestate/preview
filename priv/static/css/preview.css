@@ -20,7 +20,7 @@ html {
 button,
 input[type="submit"] {
   -webkit-font-smoothing: antialiased;
-  background-color: #477dca;
+  background-color: #477DCA;
   border-radius: 3px;
   color: white;
   display: inline-block;
@@ -41,7 +41,7 @@ input[type="submit"] {
 body {
   -webkit-font-smoothing: antialiased;
   background-color: white;
-  color: #333333;
+  color: #333;
   font-family: "Oxygen", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.5; }
@@ -82,7 +82,7 @@ a {
   -webkit-transition: color 0.1s linear;
   -moz-transition: color 0.1s linear;
   transition: color 0.1s linear;
-  color: #477dca;
+  color: #477DCA;
   text-decoration: none; }
   a:hover {
     color: #2c5999; }
@@ -91,7 +91,7 @@ a {
     outline: none; }
 
 hr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #DDD;
   border-left: none;
   border-right: none;
   border-top: none;
@@ -103,7 +103,7 @@ picture {
   max-width: 100%; }
 
 blockquote {
-  border-left: 2px solid #dddddd;
+  border-left: 2px solid #DDD;
   color: #595959;
   margin: 1.5em 0;
   padding-left: 0.75em; }
@@ -116,7 +116,7 @@ cite {
 
 fieldset {
   background: #f7f7f7;
-  border: 1px solid #dddddd;
+  border: 1px solid #DDD;
   margin: 0 0 0.75em 0;
   padding: 1.5em; }
 
@@ -146,7 +146,7 @@ select[multiple=multiple] {
   transition: border-color;
   background-color: white;
   border-radius: 3px;
-  border: 1px solid #dddddd;
+  border: 1px solid #DDD;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   font-family: "Oxygen", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   font-size: 1em;
@@ -160,7 +160,7 @@ select[multiple=multiple] {
   textarea:focus,
   input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
   select[multiple=multiple]:focus {
-    border-color: #477dca;
+    border-color: #477DCA;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
     outline: none; }
 
@@ -201,7 +201,7 @@ th {
   text-align: left; }
 
 td {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #DDD;
   padding: 0.75em 0; }
 
 tr,
@@ -236,14 +236,28 @@ input[type="submit"] {
   white-space: nowrap; }
 
 header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  padding: 0.4em; }
+  margin: auto;
+  text-align: center;
+  position: relative; }
   header:after {
     content: "";
     display: table;
     clear: both; }
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  header .header-logo {
+    width: 234px;
+    height: 60px;
+    display: inline-block;
+    background-image: url("/images/poweredby-phoenix-badge2-02.png");
+    background-size: 234px 60px;
+    background-repeat: no-repeat, repeat-x; }
   @media screen and (max-width: 480px) {
     header {
       height: auto; } }
@@ -252,7 +266,6 @@ div.container {
   max-width: 68em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1em;
   padding-left: 1em;
   padding-right: 1em; }
   div.container:after {
@@ -260,38 +273,6 @@ div.container {
     display: table;
     clear: both; }
 
-section.logo {
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  section.logo:after {
-    content: "";
-    display: table;
-    clear: both; }
-  section.logo aside {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 31.76157%;
-    background-image: url("../images/phoenix.png");
-    background-image: url("../images/phoenix.png");
-    width: 300px;
-    height: 41px;
-    background-repeat: no-repeat, repeat-x;
-    background-size: 300px 41px;
-    float: right; }
-    section.logo aside:last-child {
-      margin-right: 0; }
-  section.logo article {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%;
-    padding-top: 0.4em; }
-    section.logo article:last-child {
-      margin-right: 0; }
-    section.logo article h3 {
-      font-family: 'Nothing You Could Do', cursive; }
 section.page aside {
   float: left;
   display: block;
@@ -383,8 +364,7 @@ form.inline article {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
-  padding: 0.4em; }
+  width: 48.82117%; }
   @media screen and (max-width: 480px) {
     form.inline article {
       float: left;
@@ -411,3 +391,59 @@ form.inline .submit {
   padding: 0.4em; }
   form.inline .submit:last-child {
     margin-right: 0; }
+form.signup {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+  color: black; }
+  form.signup:last-child {
+    margin-right: 0; }
+form.label {
+  color: white; }
+
+.hero {
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"), -webkit-linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
+  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"), linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-bottom: 4em; }
+  .hero .hero-inner {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3em;
+    margin: auto;
+    text-align: center;
+    color: white; }
+    .hero .hero-inner:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .hero .hero-inner:after {
+      content: "";
+      display: table;
+      clear: both; }
+    .hero .hero-inner .hero-copy {
+      text-align: center; }
+      .hero .hero-inner .hero-copy h1 {
+        font-size: 2em;
+        margin-bottom: .5em;
+        font-family: 'Nothing You Could Do', cursive; }
+        @media screen and (min-width: 75em) {
+          .hero .hero-inner .hero-copy h1 {
+            font-size: 2.2em; } }
+      .hero .hero-inner .hero-copy p {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+        margin: auto;
+        margin-bottom: 3em;
+        font-weight: 200;
+        line-height: 1.4em; }
+        @media screen and (min-width: 75em) {
+          .hero .hero-inner .hero-copy p {
+            font-size: 1.1em;
+            max-width: 40%; } }
+
+/*# sourceMappingURL=preview.css.map */
