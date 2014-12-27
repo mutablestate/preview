@@ -1,5 +1,7 @@
 <section class="page">
   <article>
+    <p>Logged in as: <%= @session %></p>
+    <hr />
     <h5>Users</h5>
     <table>
       <tbody>
@@ -23,10 +25,6 @@
     </table>
   </article>
   <aside>
-    <ul>
-      <li>
-        <a href="<%= user_path(:logout) %>" class="">Logout</a>
-      </li>
-    </ul>
+    <a href="<%= user_path(:logout) %>" class="">Logout</a>
   </aside>
 </section>

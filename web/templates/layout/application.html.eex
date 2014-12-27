@@ -12,42 +12,25 @@
 
     <title>Preview Phoenix!</title>
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/demo.css">
+    <link rel="stylesheet" href="/css/preview.css">
     <link rel="stylesheet" href="/css/flash.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
     <header>
-      <section class="logo">
-        <article>
-          <h3>Preview</h3>
-        </article>
-      </section>
+      <a href="http://phoenixframework.org" target="_blank" class="header-logo" alt="Powered by Phoenix"></a>
     </header>
 
     <div class="container">
       <div class=<%= flash_class(Flash.get(@conn)) %>>
-        <div class="row">
-          <%= flash_message(Flash.get(@conn)) %>
-        </div>
+        <%= flash_message(Flash.get(@conn)) %>
       </div>
 
       <%= @inner %>
     </div>
 
     <footer>
-      <p><b>Built using a modern stack</b></p>
-      <ul>
-        <li>
-          <a href="http://elixir-lang.org" target="_blank">Elixir Language</a>
-        </li>
-        <li>
-          <a href="http://phoenixframework.org" target="_blank">Phoenix Framework</a>
-        </li>
-        <li>
-          <a href="http://bourbon.io" target="_blank">Bourbon family</a>
-        </li>
-      </ul>
     </footer>
   </body>
 </html>
