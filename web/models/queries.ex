@@ -1,6 +1,5 @@
 defmodule Preview.Queries do
   import Ecto.Query
-  import Preview.Authenticate
   alias Preview.Authenticate
 
   def all_users do
@@ -24,9 +23,8 @@ defmodule Preview.Queries do
 
     user = Preview.Repo.one(query)
 
-    authenticate_password(user, password)
+    _login(user, password)
   end
-
-  defp authenticate_password(nil, _),  do: nil
-  defp authenticate_password(user, password), do: Authenticate.password(user, password)
+  defp _login(nil, _),  do: nil
+  defp _login(user, password), do: Authenticate.password(user, password)
 end
