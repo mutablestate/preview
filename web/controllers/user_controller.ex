@@ -1,8 +1,9 @@
 defmodule Preview.UserController do
   use Phoenix.Controller
-  alias Preview.Repo
-  import Preview.Router.Helpers
   alias Phoenix.Controller.Flash
+  import Preview.Router.Helpers
+  alias Preview.Repo
+  alias Preview.Authenticate
 
   plug :action
 
@@ -10,11 +11,15 @@ defmodule Preview.UserController do
     users = Preview.Queries.all_users
     signups = Preview.Queries.all_signups
     user = get_session(conn, :username)
-    if user == nil do
-      render conn, "error.html"
-    else
+
+    if Authenticate.user_session?(user, users) do
       render conn, "index.html", users: users,
-                                 signups: signups
+                                 signups: signups,
+                                 session: user
+    else
+      conn
+      |> Flash.put(:error, "Unathorized!")
+      |> render "login.html"
     end
   end
 
