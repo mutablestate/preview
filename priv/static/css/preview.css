@@ -404,8 +404,8 @@ form.label {
   color: white; }
 
 .hero {
-  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"), -webkit-linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
-  background: url("https:\a//raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png"), linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
+  background: url("/images/mountains.png"), -webkit-linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
+  background: url("/images/mountains.png"), linear-gradient(10deg, #4f9f73, #7fbe8b), no-repeat #7fbe8b scroll;
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;

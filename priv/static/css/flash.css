@@ -5,7 +5,7 @@
   padding: 0.75em; }
 
 .flash-alert {
-  background: #fff6bf;
+  background: #FFF6BF;
   color: #8c7800; }
   .flash-alert a {
     color: #594c00;
@@ -14,7 +14,7 @@
       color: black; }
 
 .flash-error {
-  background: #fbe3e4;
+  background: #FBE3E4;
   color: #96151b; }
   .flash-error a {
     color: #6a0f13;
@@ -32,10 +32,12 @@
       color: #04080e; }
 
 .flash-success {
-  background: #e6efc2;
+  background: #E6EFC2;
   color: #56651a; }
   .flash-success a {
     color: #333c10;
     border-bottom: 1px solid rgba(51, 60, 16, 0.3); }
     .flash-success a:hover {
       color: black; }
+
+/*# sourceMappingURL=flash.css.map */
