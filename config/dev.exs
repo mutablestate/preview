@@ -8,6 +8,6 @@ config :preview, Preview.Endpoint,
 config :phoenix, :code_reloader, true
 
 config :preview,
-  postgres_pass: System.get_env("POSTGRES_PASS"),
-  mailgun_domain: "my_mailgun_domain",
-  mailgun_key: System.get_env("MAILGUN_KEY")
+  postgres_pass:  System.get_env("POSTGRES_PASS"),
+  mailgun_domain: System.get_env("MAILGUN_DOMAIN"),
+  mailgun_key:    System.get_env("MAILGUN_KEY")
