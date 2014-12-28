@@ -24,6 +24,7 @@ an admin user to login and view signed up emails.
   ```
   export POSTGRES_PASS="my_postgres_password"
   export MAILGUN_KEY="my_mailgun_api_key"
+  export MAILGUN_DOMAIN="my_mailgun_domain"
   ```
 
 3. Clone, compile with dependencies and run the migrations
@@ -36,17 +37,7 @@ an admin user to login and view signed up emails.
 
 4. Setup the mailer
 
-  Add your [mailgun](http://www.mailgun.com/) domain to the config for your environment
-
-  ```elixir    
-  # config/dev.exs
-  # config/prod.exs
-  # config/test.exs
-
-  mailgun_domain: "my_mailgun_domain"
-  ```
-
-  Customize the welcome message by changing these lines
+  Customize the welcome email message sent to signups by changing these lines
 
   ```elixir    
   # lib/preview/mailer.ex
