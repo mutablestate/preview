@@ -5,7 +5,7 @@ defmodule Preview.Authenticate do
   Returns nil or user struct
   """
   def password(user, password) do
-    _password(Comeonin.check_password(password, user.password), user)
+    _password(Comeonin.checkpw(password, user.password), user)
   end
   defp _password(false, _),   do: nil
   defp _password(true, user), do: user

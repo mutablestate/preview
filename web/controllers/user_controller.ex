@@ -29,7 +29,7 @@ defmodule Preview.UserController do
 
   def create(conn, params) do
     user = %Preview.User{username: params["username"],
-                         password: Preview.Crypto.md5(params["password"])}
+                         password: Comeonin.hashpwsalt(params["password"])}
 
     Repo.insert(user)
 

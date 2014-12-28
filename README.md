@@ -67,7 +67,7 @@ an admin user to login and view signed up emails.
   alias Preview.Repo
   alias Preview.User
 
-  fields = [username: "my_email_address", password: Comeonin.hash_password("my_password")]
+  fields = [username: "my_email_address", password: Comeonin.hashpwsalt("my_password")]
   user = struct(User, fields)
   Repo.insert(user)
   ```
