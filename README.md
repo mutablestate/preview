@@ -7,6 +7,10 @@ Use as a placeholder to market an upcoming site and gauge interest.
 It simply collects email addresses, sends an email welcome message and allows
 an admin user to login and view signed up emails.
 
+## Demo
+
+[http://preview.elixircnx.com](http://preview.elixircnx.com)
+
 ## Setup
 
 1. Add a postgresql database for Preview to use
