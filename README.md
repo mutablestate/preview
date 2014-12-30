@@ -82,7 +82,7 @@ an admin user to login and view signed up emails.
 
 ## Notes
 
-- Preview uses SASS. You will need to compile it to CSS when modified. If you're new to this procedure give [Koala](http://koala-app.com) a try.
+- Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
 
 ## Goals
 
