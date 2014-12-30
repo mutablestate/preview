@@ -39,7 +39,22 @@ an admin user to login and view signed up emails.
   mix ecto.migrate Preview.Repo
   ```
 
-4. Setup the mailer
+4. Add the admin user
+
+  Customize the username and password
+
+  ```elixir
+  # priv/repo/seeds.ex
+
+  user = %{
+           username: "my_admin_email_address",
+           password: Comeonin.hashpwsalt("my_admin_password")
+         }
+  ```
+
+  Run `mix run priv/repo/seeds.ex` from the Preview root directory
+
+5. Setup the mailer
 
   Customize the welcome email message sent to signups by changing these lines
 
@@ -50,21 +65,6 @@ an admin user to login and view signed up emails.
 
   subject: "Preview registration",
   body: "Welcome to Preview! Follow me on Twitter @mutablestate."
-  ```
-
-5. Manually add a user to act as admin
-
-  Run `iex -S mix` from the Preview root directory
-
-  ```elixir
-  import Preview.User
-  import Preview.Repo
-  alias Preview.Repo
-  alias Preview.User
-
-  fields = [username: "my_email_address", password: Comeonin.hashpwsalt("my_password")]
-  user = struct(User, fields)
-  Repo.insert(user)
   ```
 
 6. Start the Phoenix server
