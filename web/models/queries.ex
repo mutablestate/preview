@@ -25,6 +25,9 @@ defmodule Preview.Queries do
 
     _login(user, password)
   end
-  defp _login(nil, _),  do: nil
+  defp _login(nil, _) do
+    Comeonin.dummy_checkpw
+    nil
+  end
   defp _login(user, password), do: Authenticate.password(user, password)
 end
