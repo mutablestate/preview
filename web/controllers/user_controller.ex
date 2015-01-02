@@ -18,7 +18,7 @@ defmodule Preview.UserController do
                                  session: user
     else
       conn
-      |> Flash.put(:error, "Unathorized!")
+      |> Flash.put(:error, "Unauthorized!")
       |> render "login.html"
     end
   end
