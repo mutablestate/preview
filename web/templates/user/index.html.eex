@@ -25,6 +25,6 @@
     </table>
   </article>
   <aside>
-    <a href="<%= user_path(:logout) %>" class="">Logout</a>
+    <a href="<%= user_path(:logout) %>" class="logout">Logout</a>
   </aside>
 </section>

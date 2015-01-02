@@ -80,9 +80,10 @@ an admin user to login and view signed up emails.
 - [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
 - [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
 
-## Notes
+## Development Notes
 
 - Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
+- Integration tests are configured to use the PhantomJS driver for [hound](https://github.com/HashNuke/hound).
 
 ## Goals
 
