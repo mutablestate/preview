@@ -36,7 +36,7 @@ defmodule Preview.Mixfile do
       {:cowboy,   "~> 1.0"},
       {:postgrex, "~> 0.6.0"},
       {:ecto,     "~> 0.2.5"},
-      {:comeonin, github: "elixircnx/comeonin"},
+      {:comeonin, "~> 0.1.0"},
       {:mailgun,  "~> 0.0.1"},
       {:hound,    "~> 0.6.0", only: :test}
     ]
