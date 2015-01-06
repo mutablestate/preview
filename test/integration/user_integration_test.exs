@@ -6,7 +6,7 @@ defmodule UserIntegrationTest do
 
   hound_session
 
-  @base_url  "http://localhost:4000/"
+  @base_url  "http://localhost:4001/"
   @username  "vader@example.com"
   @password  "deathstar"
 
