@@ -21,8 +21,8 @@ defmodule Preview.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_preview_key",
-    signing_salt: "Vg9f5RLb",
-    encryption_salt: "rlaLMzZY"
+    signing_salt: "NGyFo/1j",
+    encryption_salt: "wOE5gNyA"
 
   plug :router, Preview.Router
 end
