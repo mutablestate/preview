@@ -88,6 +88,7 @@ an admin user to login and view signed up emails.
 ## Goals
 
 - An opinionated starting point to develop Elixir / Phoenix sites
+- Use the latest stable Phoenix release (currently at 0.7.2)
 - Discover, learn and have fun!
 
 ## Contributing
