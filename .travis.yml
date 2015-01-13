@@ -9,6 +9,7 @@ before_script:
   - export PATH=`pwd`/elixir/bin:$PATH
   - mix local.hex --force
   - mix deps.get --only test
+  - phantomjs
 script: mix test
 after_script:
   - mix deps.get --only docs
