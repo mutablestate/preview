@@ -10,8 +10,7 @@ before_script:
   - mix local.hex --force
   - mix deps.get --only test
 script:
-  - phantomjs testrunner.js
-  - mix test
+  - mix test --exclude integration
 after_script:
   - mix deps.get --only docs
   - MIX_ENV=docs mix inch.report

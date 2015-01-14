@@ -25,6 +25,7 @@ defmodule UserIntegrationTest do
     click({:class, "submit-form"})
   end
 
+  @tag integration: true
   test "unauthorized visitor notification and login form render" do
     navigate_to @base_url <> "users"
 
@@ -32,6 +33,7 @@ defmodule UserIntegrationTest do
     assert visible_text({:class, "submit-form"}) == "Login"
   end
 
+  @tag integration: true
   test "unregistered user login attempt notification and login form render" do
     navigate_to @base_url <> "users/login"
 
@@ -44,6 +46,7 @@ defmodule UserIntegrationTest do
     assert visible_text({:class, "flash-error"}) == "Incorrect username and or password"
   end
 
+  @tag integration: true
   test "registered user login redirects to users page with notification" do
     navigate_to @base_url <> "users/login"
     submit_valid_login
@@ -54,6 +57,7 @@ defmodule UserIntegrationTest do
     click({:class, "logout"})
   end
 
+  @tag integration: true
   test "logout redirects to root path with notification" do
     navigate_to @base_url <> "users/login"
     submit_valid_login

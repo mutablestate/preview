@@ -1,4 +1,7 @@
 # Preview
+[![Build
+Status](https://travis-ci.org/mutablestate/preview.svg?branch=master "Build
+Status")](http://travis-ci.org/mutablestate/preview)
 
 A pre-launch starter app written in Elixir Language on Phoenix Web Framework with the Bourbon family.
 
@@ -84,6 +87,7 @@ an admin user to login and view signed up emails.
 
 - Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
 - Integration tests are configured to use the PhantomJS driver for [hound](https://github.com/HashNuke/hound).
+- To exclude integration tests from a test run `mix `
 
 ## Goals
 
