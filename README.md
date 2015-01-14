@@ -87,7 +87,7 @@ an admin user to login and view signed up emails.
 
 - Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
 - Integration tests are configured to use the PhantomJS driver for [hound](https://github.com/HashNuke/hound).
-- To exclude integration tests from a test run `mix `
+- To exclude integration tests from a test run `mix test --exclude integration`
 
 ## Goals
 
