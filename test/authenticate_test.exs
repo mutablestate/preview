@@ -4,25 +4,19 @@ defmodule Preview.AuthenticateTest do
 
   def letmein_user do
     %Preview.User{
-      created_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      updated_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       username: "obiwan@example.com"}
   end
 
   def users do
     [%Preview.User{
-      created_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      updated_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       username: "luke@example.com"},
     %Preview.User{
-      created_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      updated_at: %Ecto.DateTime{day: 25, hour: 4, min: 46, month: 12, sec: 52, year: 2014},
       username: "chewie@example.com"}]
   end
 
