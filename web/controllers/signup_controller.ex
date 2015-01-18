@@ -1,15 +1,15 @@
 defmodule Preview.SignupController do
   use Phoenix.Controller
-  alias Preview.Repo
   import Preview.Router.Helpers
-  alias Phoenix.Controller.Flash
+  alias Preview.Repo
   alias Preview.Mailer
 
   plug :action
 
   @doc """
   Registers new emails and sends a welcome email
-  Returns flash message and redirect path
+
+  Returns success or error flash message to the root path
   """
   def register(conn, params) do
     signup = %Preview.Signup{email: params["email"]}
@@ -17,15 +17,15 @@ defmodule Preview.SignupController do
 
     if signed_up?(signup, signups) do
       conn
-      |> Flash.put(:error, "Email already signed up!")
-      |> redirect to: root_path(:index)
+      |> put_flash(:error, "Email already signed up!")
+      |> redirect to: root_path(conn, :index)
     else
       Repo.insert(signup)
       Mailer.send_welcome_email(signup)
 
       conn
-      |> Flash.put(:success, "Thanks for registering #{params["email"]}! Check your email.")
-      |> redirect to: root_path(:index)
+      |> put_flash(:success, "Thanks for registering #{params["email"]}! Check your email.")
+      |> redirect to: root_path(conn, :index)
     end
   end
 
