@@ -8,7 +8,6 @@ use Mix.Config
 # Configures the endpoint
 config :preview, Preview.Endpoint,
   url: [host: "localhost"],
-  http: [port: System.get_env("PORT")],
   secret_key_base: "Gkv+bJOMTQXRek5HUTU2dG/VwvGdfjl2wM2OZKJUSWAzNqF4P8vHVLim66ZwN2KF",
   debug_errors: false
 

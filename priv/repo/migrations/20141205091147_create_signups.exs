@@ -1,16 +1,14 @@
-defmodule Preview.Repo.Migrations.CreateSignups do
+defmodule Preview.Repo.CreateSignups do
   use Ecto.Migration
 
   def up do
-    "CREATE TABLE signups(
-    id serial primary key,
-    email varchar(75) unique,
-    created_at timestamp,
-    updated_at timestamp
-    )"
+    create table(:signups) do
+      add :email, :string, size: 75
+      timestamps
+    end
   end
 
   def down do
-    "DROP TABLE signups"
+    drop table(:signups)
   end
 end
