@@ -1,6 +1,7 @@
 <section class="page">
   <h4>Login</h4>
   <form class="inline" action="/users/login" method="post">
+    <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
     <article>
       <label for="" class="">Email</label>
       <input name="username" placeholder="yourname@email.com" type="email" required="required">
@@ -12,6 +13,6 @@
     </div>
   </form>
   <aside>
-    <a href="<%= root_path(:index) %>" class="">Back</a>
+    <a href="<%= root_path(@conn, :index) %>" class="">Back</a>
   </aside>
 </section>

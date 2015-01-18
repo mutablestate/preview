@@ -1,17 +1,15 @@
-defmodule Preview.Repo.Migrations.CreateUsers do
+defmodule Preview.Repo.CreateUsers do
   use Ecto.Migration
 
   def up do
-    "CREATE TABLE users(
-     id serial primary key,
-     username varchar(75) unique,
-     password varchar(125),
-     created_at timestamp,
-     updated_at timestamp
-     )"
+    create table(:users) do
+      add :username, :string, size: 75
+      add :password, :string, size: 125
+      timestamps
+    end
   end
 
   def down do
-    "DROP TABLE users"
+    drop table(:users)
   end
 end

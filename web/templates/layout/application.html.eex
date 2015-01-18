@@ -23,8 +23,8 @@
     </header>
 
     <div class="container">
-      <div class=<%= flash_class(Flash.get(@conn)) %>>
-        <%= flash_message(Flash.get(@conn)) %>
+      <div class=<%= flash_class(Controller.get_flash(@conn)) %>>
+        <%= flash_message(Controller.get_flash(@conn)) %>
       </div>
 
       <%= @inner %>

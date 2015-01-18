@@ -12,21 +12,28 @@ defmodule Preview.View do
       use Phoenix.HTML
 
       # Common aliases
-      alias Phoenix.Controller.Flash
+      alias Phoenix.Controller
     end
   end
 
+  def csrf_token(conn) do
+    Plug.Conn.get_session(conn, :csrf_token)
+  end
+
   @doc """
-  Helper function to determine style class from a flash
+  Helper function to determine style class from the flash
+
   Returns a string
 
   ## Example
 
-    iex> alias Plug.Conn
-    iex> alias Phoenix.Controller.Flash
-    iex> conn = %Conn{private: %{plug_session: %{}}}
-    iex> Flash.put(conn, :error, "Message!") |> Flash.get |> Preview.View.flash_class
-    "flash-error"
+    iex> alias Phoenix.Controller
+    ...> alias Plug.Conn
+    ...> conn = %Conn{private: %{plug_session: %{}}}
+    ...> conn |> Controller.fetch_flash |>
+    ...> Controller.put_flash(:notice, "Message!") |>
+    ...> Controller.get_flash |> Preview.View.flash_class
+    "flash-notice"
 
   """
   def flash_class(map) do
@@ -42,16 +49,19 @@ defmodule Preview.View do
   end
 
   @doc """
-  Helper function to extract the message from a flash
-  Returns a list
+  Helper function to extract the message from the flash
+
+  Returns a string
 
   ## Example
 
-    iex> alias Plug.Conn
-    iex> alias Phoenix.Controller.Flash
-    iex> conn = %Conn{private: %{plug_session: %{}}}
-    iex> Flash.put(conn, :notice, "Message!") |> Flash.get |> Preview.View.flash_message
-    ["Message!"]
+    iex> alias Phoenix.Controller
+    ...> alias Plug.Conn
+    ...> conn = %Conn{private: %{plug_session: %{}}}
+    ...> conn |> Controller.fetch_flash |>
+    ...> Controller.put_flash(:notice, "Message!") |>
+    ...> Controller.get_flash |> Preview.View.flash_message
+    "Message!"
 
   """
   def flash_message(map) do

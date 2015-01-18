@@ -1,6 +1,5 @@
 defmodule Preview.UserController do
   use Phoenix.Controller
-  alias Phoenix.Controller.Flash
   import Preview.Router.Helpers
   alias Preview.Repo
   alias Preview.Authenticate
@@ -18,7 +17,7 @@ defmodule Preview.UserController do
                                  session: user
     else
       conn
-      |> Flash.put(:error, "Unauthorized!")
+      |> put_flash(:error, "Unauthorized!")
       |> render "login.html"
     end
   end
@@ -33,7 +32,7 @@ defmodule Preview.UserController do
 
     Repo.insert(user)
 
-    redirect conn, to: user_path(:index)
+    redirect conn, :index
   end
 
   def login(conn, _params) do
@@ -42,22 +41,23 @@ defmodule Preview.UserController do
 
   def login_process(conn, params) do
     user = Preview.Queries.login(params["username"], params["password"])
+
     if user == nil do
       conn
-      |> Flash.put(:error, "Incorrect username and or password")
+      |> put_flash(:error, "Incorrect username and or password")
       |> render "login.html"
     else
       conn
-      |> Flash.put(:notice, "Welcome #{params["username"]}!")
+      |> put_flash(:notice, "Welcome #{params["username"]}!")
       |> put_session(:username, params["username"])
-      |> redirect to: user_path(:index)
+      |> redirect to: user_path(conn, :index)
     end
   end
 
   def logout(conn, _params) do
     conn
     |> put_session(:username, "")
-    |> Flash.put(:notice, "You're logged out.")
-    |> redirect to: root_path(:index)
+    |> put_flash(:notice, "You're logged out.")
+    |> redirect to: root_path(conn, :index)
   end
 end

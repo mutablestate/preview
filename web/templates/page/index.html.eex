@@ -6,6 +6,7 @@
         <p>Starter app built using Elixir, Phoenix and Bourbon</p>
       </div>
       <form class="signup" action="/signups/register" method="post">
+        <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
         <label>Register for news and updates</label>
         <input placeholder="yourname@email.com" name="email" type="email" required="required">
         <div class="submit">
@@ -15,6 +16,6 @@
     </div>
   </div>
   <aside>
-    <a href="<%= user_path(:login) %>" class="button">Login</a>
+    <a href="<%= user_path(@conn, :login) %>" class="button">Login</a>
   </aside>
 </section>

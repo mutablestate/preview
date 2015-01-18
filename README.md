@@ -18,15 +18,19 @@ an admin user to login and view signed up emails.
 
 1. Add a postgresql database for Preview to use
 
-  By default we're using deploy as our db user and preview_development as our db name
+  Configure ecto for your environments - we're using deploy as our db user and preview_dev as our db name
 
   ```elixir    
-  # web/models/repo.exs
+  # config/dev.exs
 
-  parse_url "ecto://deploy:#{config_postgres_pass}@localhost/preview_development"
+  config :preview, Preview.Repo,
+    database: "preview_dev",
+    username: "deploy",
+    password: Application.get_env(:preview, :postgres_pass),
+    hostname: "localhost"
   ```
 
-2. Setup expected environment variables
+2. Add config listed environment variables to your machine
 
   ```
   export POSTGRES_PASS="my_postgres_password"
@@ -72,13 +76,13 @@ an admin user to login and view signed up emails.
 
 6. Start the Phoenix server
 
-  Run `mix phoenix.start` from the Preview root directory
+  Run `mix phoenix.server` from the Preview root directory
 
   Visit [http://localhost:4000](http://localhost:4000) in your browser
 
 ## Deployment guides
 
-- [Official Phoenix Framework Guide](http://www.phoenixframework.org/v0.7.2/docs/deployment)
+- [Official Phoenix Framework Deployment Guide](http://www.phoenixframework.org/v0.8.0/docs/deployment)
 - [Deploy Phoenix Application to a Ubuntu Server](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
 - [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
 - [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
@@ -92,7 +96,7 @@ an admin user to login and view signed up emails.
 ## Goals
 
 - An opinionated starting point to develop Elixir / Phoenix sites
-- Use the latest stable Phoenix release (currently at 0.7.2)
+- Use the latest stable Phoenix release (currently at 0.8.0)
 - Discover, learn and have fun!
 
 ## Contributing
