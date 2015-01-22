@@ -3,6 +3,7 @@ defmodule Preview.UserController do
   import Preview.Router.Helpers
   alias Preview.Repo
   alias Preview.Authenticate
+  alias Comeonin.Bcrypt
 
   plug :action
 
@@ -28,7 +29,7 @@ defmodule Preview.UserController do
 
   def create(conn, params) do
     user = %Preview.User{username: params["username"],
-                         password: Comeonin.hashpwsalt(params["password"])}
+                         password: Bcrypt.hashpwsalt(params["password"])}
 
     Repo.insert(user)
 

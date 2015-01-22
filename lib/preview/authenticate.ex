@@ -1,11 +1,13 @@
 defmodule Preview.Authenticate do
+  alias Comeonin.Bcrypt
+
   @doc """
   Authenticates a non-hashed password matches the hashed password in a user struct
 
   Returns nil or user struct
   """
   def password(user, password) do
-    _password(Comeonin.checkpw(password, user.password), user)
+    _password(Bcrypt.checkpw(password, user.password), user)
   end
   defp _password(false, _),   do: nil
   defp _password(true, user), do: user
