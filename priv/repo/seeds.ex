@@ -2,7 +2,7 @@
 
 user = %{
          username: "my_admin_email_address",
-         password: Comeonin.hashpwsalt("my_admin_password")
+         password: Comeonin.Bcrypt.hashpwsalt("my_admin_password")
        }
 
 new_user = Map.merge(%Preview.User{}, user)

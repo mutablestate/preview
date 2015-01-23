@@ -4,7 +4,7 @@ defmodule UserHelper do
   alias Preview.Queries
 
   def create_user(username, password) do
-    fields = [username: username, password: Comeonin.hashpwsalt(password)]
+    fields = [username: username, password: Comeonin.Bcrypt.hashpwsalt(password)]
     user = struct(User, fields)
     Repo.insert(user)
   end

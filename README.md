@@ -55,7 +55,7 @@ an admin user to login and view signed up emails.
 
   user = %{
            username: "my_admin_email_address",
-           password: Comeonin.hashpwsalt("my_admin_password")
+           password: Comeonin.Bcrypt.hashpwsalt("my_admin_password")
          }
   ```
 

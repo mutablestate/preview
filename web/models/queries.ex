@@ -54,7 +54,7 @@ defmodule Preview.Queries do
     _login(user, password)
   end
   defp _login(nil, _) do
-    Comeonin.dummy_checkpw
+    Comeonin.Bcrypt.dummy_checkpw
     nil
   end
   defp _login(user, password), do: Authenticate.password(user, password)
