@@ -3,7 +3,7 @@ defmodule Preview.Repo.CreateUsers do
 
   def up do
     create table(:users) do
-      add :username, :string, size: 75
+      add :email, :string, size: 75
       add :password, :string, size: 125
       timestamps
     end

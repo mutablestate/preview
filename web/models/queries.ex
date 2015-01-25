@@ -15,13 +15,13 @@ defmodule Preview.Queries do
   end
 
   @doc """
-  Query finds user by username
+  Query finds user by email
 
   Returns user struct or nil
   """
-  def find_by_username(username) do
+  def find_by_email(email) do
     query = from user in Preview.User,
-            where: user.username == ^username,
+            where: user.email == ^email,
             select: user
 
     Preview.Repo.one(query)
@@ -44,15 +44,16 @@ defmodule Preview.Queries do
 
   Returns user struct or nil
   """
-  def login(username, password) do
+  def login(email, password) do
     query = from user in Preview.User,
-            where: user.username == ^username,
+            where: user.email == ^email,
             select: user
 
     user = Preview.Repo.one(query)
 
     _login(user, password)
   end
+
   defp _login(nil, _) do
     Comeonin.Bcrypt.dummy_checkpw
     nil

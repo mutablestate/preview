@@ -1,7 +1,7 @@
 # mix run seeds.ex
 
 user = %{
-         username: "my_admin_email_address",
+         email: "my_admin_email_address",
          password: Comeonin.Bcrypt.hashpwsalt("my_admin_password")
        }
 

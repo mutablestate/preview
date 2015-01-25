@@ -6,18 +6,18 @@ defmodule Preview.AuthenticateTest do
     %Preview.User{
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      username: "obiwan@example.com"}
+      email: "obiwan@example.com"}
   end
 
   def users do
     [%Preview.User{
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      username: "luke@example.com"},
+      email: "luke@example.com"},
     %Preview.User{
       id: 1,
       password: "$2a$10$2EIByNPyYvI55PyzoQVeHe.XFYktolJRDse0m3Gl8v28cxdK8wusu",
-      username: "chewie@example.com"}]
+      email: "chewie@example.com"}]
   end
 
   # password/2

@@ -7,7 +7,7 @@
       <tbody>
         <%= for user <- @users do %>
           <tr>
-            <td><%= user.username %></td>
+            <td><%= user.email %></td>
           </tr>
         <% end %>
       </tbody>
