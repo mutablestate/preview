@@ -10,7 +10,7 @@ defmodule Preview.UserController do
   def index(conn, _params) do
     users = Preview.Queries.all_users
     signups = Preview.Queries.all_signups
-    user = get_session(conn, :username)
+    user = get_session(conn, :email)
 
     if Authenticate.user_session?(user, users) do
       render conn, "index.html", users: users,
@@ -28,11 +28,10 @@ defmodule Preview.UserController do
   end
 
   def create(conn, params) do
-    user = %Preview.User{username: params["username"],
+    user = %Preview.User{email: params["email"],
                          password: Bcrypt.hashpwsalt(params["password"])}
 
     Repo.insert(user)
-
     redirect conn, :index
   end
 
@@ -41,23 +40,23 @@ defmodule Preview.UserController do
   end
 
   def login_process(conn, params) do
-    user = Preview.Queries.login(params["username"], params["password"])
+    user = Preview.Queries.login(params["email"], params["password"])
 
     if user == nil do
       conn
-      |> put_flash(:error, "Incorrect username and or password")
+      |> put_flash(:error, "Incorrect email and or password")
       |> render "login.html"
     else
       conn
-      |> put_flash(:notice, "Welcome #{params["username"]}!")
-      |> put_session(:username, params["username"])
+      |> put_flash(:notice, "Welcome #{params["email"]}!")
+      |> put_session(:email, params["email"])
       |> redirect to: user_path(conn, :index)
     end
   end
 
   def logout(conn, _params) do
     conn
-    |> put_session(:username, "")
+    |> put_session(:email, "")
     |> put_flash(:notice, "You're logged out.")
     |> redirect to: root_path(conn, :index)
   end

@@ -19,7 +19,7 @@ defmodule Preview.Authenticate do
   """
   def user_session?(user, users) do
     users
-    |> Enum.map(fn user -> user.username end)
+    |> Enum.map(fn user -> user.email end)
     |> Enum.member?(user)
   end
 end

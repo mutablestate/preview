@@ -4,7 +4,7 @@
     <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
     <article>
       <label for="" class="">Email</label>
-      <input name="username" placeholder="yourname@email.com" type="email" required="required">
+      <input name="email" placeholder="yourname@email.com" type="email" required="required">
       <label for="" class="">Password</label>
       <input name="password" class="" type="password">
     </article>
