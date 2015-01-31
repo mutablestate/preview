@@ -23,6 +23,7 @@
         <% end %>
       </tbody>
     </table>
+    <a href="<%= user_path(@conn, :signups) %>" class="signups">Download CSV</a>
   </article>
   <aside>
     <a href="<%= user_path(@conn, :logout) %>" class="logout">Logout</a>
