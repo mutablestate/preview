@@ -12,6 +12,11 @@ defmodule Preview.Router do
     plug :accepts, ~w(json)
   end
 
+  pipeline :csv do
+    plug :accepts, ~w(csv)
+    plug :fetch_session
+  end
+
   scope "/", Preview do
     pipe_through :browser # Use the default browser stack
 
@@ -24,6 +29,12 @@ defmodule Preview.Router do
     get  "/users/logout", UserController, :logout, as: :user
 
     post "/signups/register", SignupController, :register, as: :signup
+  end
+
+  scope "/users", Preview do
+    pipe_through :csv
+
+    get "/signups", UserController, :signups
   end
 
   # Other scopes may use custom stacks.
