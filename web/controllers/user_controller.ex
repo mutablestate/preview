@@ -3,6 +3,7 @@ defmodule Preview.UserController do
   import Preview.Router.Helpers
   alias Preview.Repo
   alias Preview.Authenticate
+  alias Preview.CsvHelper
   alias Comeonin.Bcrypt
 
   plug :action
@@ -63,39 +64,19 @@ defmodule Preview.UserController do
 
   def signups(conn, _params) do
     signups = Preview.Queries.all_signups
+    headers = [:id, :email]
 
-    csv_filename = signups
-      |> to_csv(["id", "email"])
+    if CsvHelper.valid_headers?(headers, Preview.Signup) do
+      csv_filename = signups
+        |> CsvHelper.generate_csv(headers)
+        |> CsvHelper.csv_to_file("signups")
 
-    conn
-    |> put_resp_content_type("text/csv")
-    |> put_resp_header("content-disposition", "attachment; filename=#{csv_filename}")
-    |> send_file(200, csv_filename)
-  end
-
-  defp to_csv(signups, headers) do
-    header_line = CSVLixir.write(headers)
-
-    csv_lines = signups
-      |> Enum.map(fn s -> ["#{s.id}", "#{s.email}"] end)
-      |> CSVLixir.write
-
-    csv_data = header_line <> "\n" <> csv_lines
-    csv_filename = "signups#{timestamp}.csv"
-
-    csv_filename
-    |> File.write(csv_data)
-
-    csv_filename
-  end
-
-  defp timestamp do
-    :erlang.now
-    |> :calendar.now_to_universal_time
-    |> :calendar.datetime_to_gregorian_seconds
-    |> to_epoch_time
-  end
-  defp to_epoch_time(gregorian_seconds) do
-    (gregorian_seconds) -719528*24*3600
+      conn
+      |> put_resp_content_type("text/csv")
+      |> put_resp_header("content-disposition", "attachment; filename=#{csv_filename}")
+      |> send_file(200, csv_filename)
+    else
+      IO.puts("Error please check headers are valid")
+    end
   end
 end
