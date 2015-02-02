@@ -77,7 +77,7 @@ defmodule Preview.CsvHelper do
     csv_path
     |> File.write(csv_content)
 
-   csv_path
+    csv_path
   end
 
   defp timestamp do
