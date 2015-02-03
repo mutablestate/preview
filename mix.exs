@@ -1,7 +1,7 @@
 defmodule Preview.Mixfile do
   use Mix.Project
 
-  @application_list [:phoenix, :cowboy, :logger, :postgrex, :ecto, :comeonin, :mailgun]
+  @application_list [:phoenix, :cowboy, :logger, :postgrex, :ecto, :comeonin, :mailgun, :csvlixir]
 
   def project do
     [app: :preview,
@@ -36,8 +36,9 @@ defmodule Preview.Mixfile do
       {:cowboy,   "~> 1.0"},
       {:postgrex, "~> 0.6.0"},
       {:ecto,     "~> 0.6.0"},
-      {:comeonin, "~> 0.2.0"},
+      {:comeonin, "~> 0.2.2"},
       {:mailgun,  "~> 0.0.1"},
+      {:csvlixir,  "~> 1.0.0"},
       {:hound,    "~> 0.6.0", only: :test}
     ]
   end

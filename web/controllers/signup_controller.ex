@@ -31,6 +31,7 @@ defmodule Preview.SignupController do
 
   @doc """
   Check for already signed up emails
+
   Returns boolean
   """
   def signed_up?(signup, signups) do

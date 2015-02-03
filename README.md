@@ -7,8 +7,9 @@ A pre-launch starter app written in Elixir Language on Phoenix Web Framework wit
 
 Use as a placeholder to market an upcoming site and gauge interest.
 
-It simply collects email addresses, sends an email welcome message and allows
-an admin user to login and view signed up emails.
+It simply collects email addresses in a database and sends a welcome message to that email.
+
+Login as an admin user to view and download a csv of signed up emails.
 
 ## Demo
 
@@ -87,7 +88,7 @@ an admin user to login and view signed up emails.
 - [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
 - [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
 
-## Development Notes
+## Development notes
 
 - Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
 - Integration tests are configured to use the PhantomJS driver for [hound](https://github.com/HashNuke/hound).
