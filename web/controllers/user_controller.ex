@@ -11,7 +11,7 @@ defmodule Preview.UserController do
   def index(conn, _params) do
     user = get_session(conn, :email)
     user
-    |> authenticate_action?(conn)
+    |> authenticate_action(conn)
 
     users = Preview.Queries.all_users
     signups = Preview.Queries.all_signups
@@ -62,7 +62,7 @@ defmodule Preview.UserController do
   def signups(conn, _params) do
     user = get_session(conn, :email)
     user
-    |> authenticate_action?(conn)
+    |> authenticate_action(conn)
 
     signups = Preview.Queries.all_signups
     headers = [:id, :email]
@@ -85,7 +85,7 @@ defmodule Preview.UserController do
     end
   end
 
-  defp authenticate_action?(user, conn) do
+  defp authenticate_action(user, conn) do
     users = Preview.Queries.all_users
 
     if Authenticate.user_session?(user, users) do
