@@ -41,6 +41,4 @@ defmodule Preview.CsvHelperTest do
 
     assert CSV.generate_csv(records, headers, false) == "1,darthmaul@example.com\n2,emperor@example.com"
   end
-
-  # TODO handle inserted_at, updated_at, password fields
 end
