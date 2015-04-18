@@ -1,5 +1,0 @@
-<section class="page">
-  <h4>New user</h4>
-  <br />
-  <%= render "form.html", user: @user, errors: @errors %>
-</section>
