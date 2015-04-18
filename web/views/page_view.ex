@@ -1,3 +1,3 @@
 defmodule Preview.PageView do
-  use Preview.View
+  use Preview.Web, :view
 end
