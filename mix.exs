@@ -1,14 +1,14 @@
 defmodule Preview.Mixfile do
   use Mix.Project
 
-  @application_list [:phoenix, :cowboy, :logger, :postgrex, :ecto, :comeonin, :mailgun, :csvlixir]
-
   def project do
     [app: :preview,
      version: "0.0.1",
      elixir: "~> 1.0",
-     elixirc_paths: ["lib", "web"],
+     elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
      deps: deps]
   end
 
@@ -17,29 +17,27 @@ defmodule Preview.Mixfile do
   # Type `mix help compile.app` for more information
   def application do
     [mod: {Preview, []},
-     applications: app_list(Mix.env)]
+     applications: [:phoenix, :cowboy, :logger, :ecto,
+                    :postgrex, :comeonin, :mailgun, :csvlixir]]
   end
 
-  defp app_list(:test) do
-    [:hound] ++ @application_list
-  end
-  defp app_list(_) do
-    @application_list
-  end
+  # Specifies which paths to compile per environment
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(_),     do: ["lib", "web"]
 
   # Specifies your project dependencies
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [
-      {:phoenix,  "~> 0.8.0"},
-      {:cowboy,   "~> 1.0"},
-      {:postgrex, "~> 0.6.0"},
-      {:ecto,     "~> 0.6.0"},
-      {:comeonin, "~> 0.2.2"},
-      {:mailgun,  "~> 0.0.1"},
-      {:csvlixir,  "~> 1.0.0"},
-      {:hound,    "~> 0.6.0", only: :test}
-    ]
+    [{:phoenix, "~> 0.11"},
+     {:phoenix_ecto, "~> 0.3"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_live_reload, "~> 0.3"},
+     {:cowboy, "~> 1.0"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_live_reload, "~> 0.3"},
+     {:comeonin, "~> 0.7"},
+     {:mailgun, "~> 0.0.1"},
+     {:csvlixir, "~> 1.0.0"}]
   end
 end

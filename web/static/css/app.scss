@@ -1,0 +1,164 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "base/base";
+
+$visual-grid: true;
+$visual-grid-color: #E6F6FF;
+$visual-grid-opacity: 0.4;
+
+$tablet: new-breakpoint(max-width 768px 2);
+$mobile: new-breakpoint(max-width 480px 1);
+
+$medium-screen: em(860);
+$large-screen: em(1200);
+
+$signup-form: black;
+
+header {
+  @include outer-container;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  @include clearfix();
+  .header-logo {
+    width: 234px;
+    height: 60px;
+    display: inline-block;
+    background-size: 234px 60px;
+    background-repeat: no-repeat, repeat-x;
+  }
+
+  @include media($mobile) {
+    height: auto;
+  }
+}
+
+div.container {
+  @include outer-container;
+  //margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+section {
+  &.page {
+    aside {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(4);
+      padding: 0.4em;
+    }
+
+    article {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(8);
+      padding: 0.4em;
+    }
+  }
+}
+
+footer {
+  @include outer-container;
+  @include clearfix();
+  margin-top: 1em;
+}
+
+form {
+  &.inline {
+    aside {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(2 of 4);
+      padding: 0.4em;
+    }
+
+    article {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(6 of 12);
+    }
+
+    .submit {
+      @include span-columns(12);
+      padding: 0.4em;
+    }
+  }
+  &.signup {
+    @include span-columns(6);
+    @include shift(3);
+    color: $signup-form;
+  }
+  &.label {
+    color: white;
+  }
+
+}
+
+.hero {
+  $hero-background-top: #7fbe8b;
+  $hero-background-bottom: #4f9f73;
+  $hero-color: white;
+  $gradient-angle: 10deg;
+
+  @include background(url('/images/mountains.png'), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  padding-bottom: 4em;
+
+
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    padding: 3em;
+    margin: auto;
+    text-align: center;
+    color: $hero-color;
+
+    .hero-copy {
+      text-align: center;
+
+      h1 {
+        font-size: 2em;
+        margin-bottom: .5em;
+        font-family: 'Nothing You Could Do', cursive;
+
+        @include media($large-screen) {
+          font-size: 2.2em;
+        }
+      }
+
+      p {
+        font-family: $helvetica;
+        margin: auto;
+        margin-bottom: 3em;
+        font-weight: 200;
+        line-height: 1.4em;
+
+        @include media($large-screen) {
+          font-size: 1.1em;
+          max-width: 40%;
+        }
+      }
+    }
+  }
+}

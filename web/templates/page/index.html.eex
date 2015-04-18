@@ -3,19 +3,13 @@
     <div class="hero-inner">
       <div class="hero-copy">
         <h1>Preview</h1>
-        <p>Starter app built using Elixir, Phoenix and Bourbon</p>
+        <p>Phoenix 0.11.0 starter app built using the Elixir Language and the Bourbon family</p>
       </div>
-      <form class="signup" action="/signups/register" method="post">
-        <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
-        <label>Register for news and updates</label>
-        <input placeholder="yourname@email.com" name="email" type="email" required="required">
-        <div class="submit">
-          <button class="" type="submit">Register</button>
-        </div>
-      </form>
+      <%= render Preview.SignupView, "form.html", changeset: @changeset,
+                                     action: signup_path(@conn, :create) %>
     </div>
   </div>
   <aside>
-    <a href="<%= user_path(@conn, :login) %>" class="button">Login</a>
+    <%= link "Login", to: login_path(@conn, :login) %>
   </aside>
 </section>

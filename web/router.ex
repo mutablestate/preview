@@ -2,18 +2,18 @@ defmodule Preview.Router do
   use Phoenix.Router
 
   pipeline :browser do
-    plug :accepts, ~w(html)
+    plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
   end
 
   pipeline :api do
-    plug :accepts, ~w(json)
+    plug :accepts, ["json"]
   end
 
   pipeline :csv do
-    plug :accepts, ~w(csv)
+    plug :accepts, ["csv"]
     plug :fetch_session
   end
 
@@ -22,19 +22,18 @@ defmodule Preview.Router do
 
     get "/", PageController, :index, as: :root
 
-    get  "/users",        UserController, :index, as: :user
-    get  "/users/new",    UserController, :new,   as: :user
-    get  "/users/login",  UserController, :login, as: :user
-    post "/users/login",  UserController, :login_process, as: :user
-    get  "/users/logout", UserController, :logout, as: :user
+    get  "/users/login",  UserController, :login,  as: :login
+    post "/users/login",  UserController, :authenticate_login, as: :login
+    post "/users/logout", UserController, :logout, as: :logout
 
-    post "/signups/register", SignupController, :register, as: :signup
+    post "/signups/create", SignupController, :create
+    get  "/signups",        SignupController, :index
   end
 
-  scope "/users", Preview do
+  scope "/signups", Preview do
     pipe_through :csv
 
-    get "/signups", UserController, :signups
+    post "/export", SignupController, :csv_export
   end
 
   # Other scopes may use custom stacks.

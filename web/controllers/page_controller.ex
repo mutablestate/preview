@@ -1,9 +1,13 @@
 defmodule Preview.PageController do
-  use Phoenix.Controller
+  use Preview.Web, :controller
+
+  alias Preview.Signup
 
   plug :action
 
   def index(conn, _params) do
-    render conn, "index.html"
+    changeset = Signup.changeset(%Signup{})
+
+    render conn, "index.html", changeset: changeset
   end
 end

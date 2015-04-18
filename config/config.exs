@@ -8,8 +8,11 @@ use Mix.Config
 # Configures the endpoint
 config :preview, Preview.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "Gkv+bJOMTQXRek5HUTU2dG/VwvGdfjl2wM2OZKJUSWAzNqF4P8vHVLim66ZwN2KF",
-  debug_errors: false
+  root: Path.expand("..", __DIR__),
+  secret_key_base: "Wwrg1wMeIZuLP4RuNYItKxk1XHM8HeMPI46Y9Pb/3Zsuvcc+xGagcm9QX6GL662k",
+  debug_errors: false,
+  pubsub: [name: Preview.PubSub,
+           adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,

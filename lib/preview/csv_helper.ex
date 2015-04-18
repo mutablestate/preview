@@ -8,7 +8,6 @@ defmodule Preview.CsvHelper do
   Returns boolean or raises ArgumentError
   """
   @spec valid_headers?(list(atom), map) :: boolean
-
   def valid_headers?(headers, module) do
     if atoms?(headers) == true do
       keys = fetch_keys(module)
@@ -37,7 +36,6 @@ defmodule Preview.CsvHelper do
   Returns data in csv format
   """
   @spec generate_csv(list(map), module, boolean) :: String.t
-
   def generate_csv(records, headers, return_headers \\ true) do
     header_row = headers
       |> Enum.map(fn header -> Atom.to_string(header) end)

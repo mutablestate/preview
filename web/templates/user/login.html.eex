@@ -1,18 +1,6 @@
-<section class="page">
-  <h4>Login</h4>
-  <form class="inline" action="/users/login" method="post">
-    <input type="hidden" name="csrf_token" value="<%= csrf_token(@conn) %>">
-    <article>
-      <label for="" class="">Email</label>
-      <input name="email" placeholder="yourname@email.com" type="email" required="required">
-      <label for="" class="">Password</label>
-      <input name="password" class="" type="password">
-    </article>
-    <div class="submit">
-      <button class="submit-form" type="submit">Login</button>
-    </div>
-  </form>
-  <aside>
-    <a href="<%= root_path(@conn, :index) %>" class="">Back</a>
-  </aside>
-</section>
+<h2>Login</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: login_path(@conn, :authenticate_login) %>
+
+<%= link "Back", to: root_path(@conn, :index) %>

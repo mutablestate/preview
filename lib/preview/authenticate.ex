@@ -2,24 +2,34 @@ defmodule Preview.Authenticate do
   alias Comeonin.Bcrypt
 
   @doc """
-  Authenticates a non-hashed password matches the hashed password in a user struct
+  Checks the hashed and non-hashed passwords match
 
-  Returns nil or user struct
+  Returns {:ok, user} or {:error, message} tuple
   """
   def password(user, password) do
-    _password(Bcrypt.checkpw(password, user.password), user)
+    check_password =
+      password
+      |> Bcrypt.checkpw(user.password)
+
+    _password(check_password, user)
   end
-  defp _password(false, _),   do: nil
-  defp _password(true, user), do: user
+  defp _password(false, _),   do: {:error, "Please enter a valid email and password"}
+  defp _password(true, user), do: {:ok, user}
 
   @doc """
-  Authenticates a session against registered users
+  Checks an email is in the users table
 
-  Returns boolean
+  Returns {:ok, message} or {:error, message} tuple
   """
-  def user_session?(user, users) do
-    users
-    |> Enum.map(fn user -> user.email end)
-    |> Enum.member?(user)
+  def session(users, email) do
+    email_check =
+      users
+      |> Enum.map(fn user -> user.email end)
+      |> Enum.member?(email)
+
+    case email_check do
+      false -> {:error, "Unauthorized access attempt!"}
+      true  -> {:ok,    "User access granted!"}
+    end
   end
 end

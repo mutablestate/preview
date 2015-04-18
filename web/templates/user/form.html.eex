@@ -1,25 +1,26 @@
-<form class="form-horizontal" action="/users" method="post">
-  <div class="form-group">
-    <label for="" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-6">
-      <input name="email" class="form-control" placeholder="yourname@email.com" type="email" required="required">
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
     </div>
-  </div>
+  <% end %>
+
   <div class="form-group">
-    <label for="" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-6">
-      <input name="password" class="form-control" type="password">
-    </div>
+    <label>Email</label>
+    <%= text_input f, :email, class: "form-control" %>
   </div>
+
   <div class="form-group">
-    <label for="" class="col-sm-2 control-label">Confirm Password</label>
-    <div class="col-sm-6">
-      <input class="form-control" type="password" name="confirmPassword">
-    </div>
+    <label>Password</label>
+    <%= text_input f, :password, class: "form-control" %>
   </div>
+
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button class="btn btn-warning" type="submit">Save</button>
-    </div>
+    <%= submit "Submit", class: "btn btn-primary" %>
   </div>
-</form>
+<% end %>

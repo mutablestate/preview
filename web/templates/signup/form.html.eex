@@ -1,0 +1,19 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <label>Register for news and updates</label>
+  <%= text_input f, :email, placeholder: "yourname@email.com" %>
+
+  <div class="submit">
+    <%= submit "Register" %>
+  </div>
+<% end %>
