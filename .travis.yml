@@ -10,9 +10,9 @@ before_script:
   - export PATH=`pwd`/elixir/bin:$PATH
   - mix local.hex --force
   - mix deps.get --only test
-  - psql -c 'create database preview_test;' -U dev
+  - psql -c 'create database preview_test;' -U postgres
 script:
-  - mix test 
+  - mix test
 after_script:
   - mix deps.get --only docs
   - MIX_ENV=docs mix inch.report

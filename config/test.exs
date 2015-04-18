@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :preview, Preview.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "dev",
-  password: System.get_env("POSTGRES_PASS"),
+  username: "postgres",
+  password: "postgres",
   database: "preview_test",
   size: 1,
   max_overflow: false
