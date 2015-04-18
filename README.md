@@ -19,7 +19,7 @@ Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to 
 
 1. Add Postgres databases for Preview to use
 
-  Configure ecto for your environments - we're using `dev` as our db user and `preview_dev` as our db name
+  Configure ecto for your environments - in the dev env we're using `dev` as our db user and `preview_dev` as our db name
 
   ```elixir    
   # config/dev.exs
@@ -36,8 +36,8 @@ Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to 
 
   config :preview, Preview.Repo,
     adapter: Ecto.Adapters.Postgres,
-    username: "dev",
-    password: System.get_env("POSTGRES_PASS"),
+    username: "postgres",
+    password: "postgres",
     database: "preview_test"
   ```
 
@@ -54,7 +54,7 @@ Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to 
   ```
   git clone https://github.com/mutablestate/preview.git
   mix do deps.get, compile
-  mix ecto.migrate Preview.Repo
+  mix ecto.migrate
   ```
 
 4. Add the admin user
