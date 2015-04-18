@@ -1,14 +1,19 @@
 defmodule Preview.Endpoint do
   use Phoenix.Endpoint, otp_app: :preview
 
+  # Serve at "/" the given assets from "priv/static" directory
   plug Plug.Static,
-    at: "/", from: :preview
+    at: "/", from: :preview,
+    only: ~w(css images js favicon.ico robots.txt)
+
+  # Code reloading can be explicitly enabled under the
+  # :code_reloader configuration of your endpoint.
+  if code_reloading? do
+    plug Phoenix.LiveReloader
+    plug Phoenix.CodeReloader
+  end
 
   plug Plug.Logger
-
-  # Code reloading will only work if the :code_reloader key of
-  # the :phoenix application is set to true in your config file.
-  plug Phoenix.CodeReloader
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
@@ -21,8 +26,8 @@ defmodule Preview.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_preview_key",
-    signing_salt: "NGyFo/1j",
-    encryption_salt: "wOE5gNyA"
+    signing_salt: "W3ASBfEZ",
+    encryption_salt: "ocDMn7FS"
 
   plug :router, Preview.Router
 end
