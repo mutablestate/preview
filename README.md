@@ -3,13 +3,13 @@
 Status](https://travis-ci.org/mutablestate/preview.svg?branch=master "Build
 Status")](http://travis-ci.org/mutablestate/preview)
 
-A pre-launch starter app written in Elixir Language on Phoenix Web Framework with the Bourbon family.
+A Phoenix Framework v0.11.0 pre-launch example application.
 
-Use as a placeholder to market an upcoming site and gauge interest.
+Use as a placeholder to promote an upcoming site and gauge interest by collecting email addresses.
 
-It simply collects email addresses in a database and sends a welcome message to that email.
+The application stores new signup email addresses in a Postgres database and sends a welcome message email with Mailgun.
 
-Login as an admin user to view and download a csv of signed up emails.
+Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to view and download a CSV file of signed up emails.
 
 ## Demo
 
@@ -17,18 +17,28 @@ Login as an admin user to view and download a csv of signed up emails.
 
 ## Setup
 
-1. Add a postgresql database for Preview to use
+1. Add Postgres databases for Preview to use
 
-  Configure ecto for your environments - we're using deploy as our db user and preview_dev as our db name
+  Configure ecto for your environments - we're using `dev` as our db user and `preview_dev` as our db name
 
   ```elixir    
   # config/dev.exs
 
   config :preview, Preview.Repo,
+    adapter: Ecto.Adapters.Postgres,
     database: "preview_dev",
-    username: "deploy",
-    password: Application.get_env(:preview, :postgres_pass),
-    hostname: "localhost"
+    username: "dev",
+    password: System.get_env("POSTGRES_PASS")
+  ```
+
+  ```elixir    
+  # config/test.exs
+
+  config :preview, Preview.Repo,
+    adapter: Ecto.Adapters.Postgres,
+    username: "dev",
+    password: System.get_env("POSTGRES_PASS"),
+    database: "preview_test"
   ```
 
 2. Add config listed environment variables to your machine
@@ -55,8 +65,8 @@ Login as an admin user to view and download a csv of signed up emails.
   # priv/repo/seeds.ex
 
   user = %{
-           email: "my_admin_email_address",
-           password: Comeonin.Bcrypt.hashpwsalt("my_admin_password")
+           email: "yoda@example.com",
+           password: Comeonin.Bcrypt.hashpwsalt("usetheforce")
          }
   ```
 
@@ -69,10 +79,10 @@ Login as an admin user to view and download a csv of signed up emails.
   ```elixir    
   # lib/preview/mailer.ex
 
-  @from : "my_email_address"
+  @from : "yoda@example.com"
 
   subject: "Preview registration",
-  body: "Welcome to Preview! Follow me on Twitter @mutablestate."
+  html: "<p>Welcome to Preview!</p>"
   ```
 
 6. Start the Phoenix server
@@ -83,21 +93,18 @@ Login as an admin user to view and download a csv of signed up emails.
 
 ## Deployment guides
 
-- [Official Phoenix Framework Deployment Guide](http://www.phoenixframework.org/v0.8.0/docs/deployment)
-- [Deploy Phoenix Application to a Ubuntu Server](http://learnelixir.com/blog/2014/10/16/deploy-phoenix-application-to-a-ubuntu-server/)
-- [Deploy Phoenix Application to Heroku](http://learnelixir.com/blog/2014/10/15/deploy-phonenix-application-to-heroku-server/)
-- [Phoenix Flying High: Deploying Phoenix The Final Part](http://www.elixirdose.com/post/phoenix-flying-high-deploying-phoenix-the-final-part)
+- [Official Guide](http://www.phoenixframework.org/v0.11.0/docs/deployment)
+- [Official Advanced Guide](http://www.phoenixframework.org/v0.11.0/docs/advanced-deployment)
 
 ## Development notes
 
-- Preview uses SASS. To compile to CSS when modified use `sass --watch priv/static/sass:priv/static/css` if you have the [sass rubygem](http://rubygems.org/gems/sass), otherwise try [Koala](http://koala-app.com).
-- Integration tests are configured to use the PhantomJS driver for [hound](https://github.com/HashNuke/hound).
-- To exclude integration tests from a test run `mix test --exclude integration`
+- The `node_modules` folder is gitignored please copy a generated directory to Preview root.
+  Generate the directory by creating a new 0.11.0 `mix phoenix.new path_to_my_project`.
 
 ## Goals
 
 - An opinionated starting point to develop Elixir / Phoenix sites
-- Use the latest stable Phoenix release (currently at 0.8.0)
+- Use the latest stable Phoenix release (currently at 0.11.0)
 - Discover, learn and have fun!
 
 ## Contributing
