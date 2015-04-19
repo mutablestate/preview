@@ -1,6 +1,13 @@
-<h2>Login</h2>
+<section class="login">
+  <h2>Login</h2>
+  <article>
+    <%= render "form.html", changeset: @changeset,
+                            action: login_path(@conn, :authenticate_login) %>
+  </article>
 
-<%= render "form.html", changeset: @changeset,
-                        action: login_path(@conn, :authenticate_login) %>
+  <aside></aside>
 
-<%= link "Back", to: root_path(@conn, :index) %>
+  <article>
+    <%= link "Back", to: root_path(@conn, :index) %>
+  </article>
+</section>

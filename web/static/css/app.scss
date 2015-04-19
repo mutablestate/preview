@@ -67,6 +67,32 @@ section {
   }
 }
 
+section {
+  &.login {
+    aside {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(2 of 4);
+      padding: 0.4em;
+    }
+
+    article {
+      @include media($mobile) {
+        @include span-columns(1);
+      }
+      @include media($tablet) {
+        @include span-columns(2);
+      }
+      @include span-columns(6 of 12);
+      padding: 0.4em;
+    }
+  }
+}
+
 footer {
   @include outer-container;
   @include clearfix();
@@ -109,7 +135,6 @@ form {
   &.label {
     color: white;
   }
-
 }
 
 .hero {

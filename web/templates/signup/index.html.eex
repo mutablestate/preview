@@ -1,21 +1,23 @@
-<h2>Listing signups</h2>
+<section class="page">
+  <h2>Listing signups</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Signup Date</th>
-    </tr>
-  </thead>
-  <tbody>
-<%= for signup <- @signups do %>
-    <tr>
-      <td><%= signup.email %></td>
-      <td><%= signup.inserted_at %></td>
-    </tr>
-<% end %>
-  </tbody>
-</table>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Signup Date</th>
+      </tr>
+    </thead>
+    <tbody>
+  <%= for signup <- @signups do %>
+      <tr>
+        <td><%= signup.email %></td>
+        <td><%= signup.inserted_at %></td>
+      </tr>
+  <% end %>
+    </tbody>
+  </table>
 
-<p><%= link "Download CSV", to: signup_path(@conn, :csv_export), method: :post %></p>
-<p><%= link "Logout", to: logout_path(@conn, :logout), method: :post %></p>
+  <p><%= link "Download CSV", to: signup_path(@conn, :csv_export), method: :post %></p>
+  <p><%= link "Logout", to: logout_path(@conn, :logout), method: :post %></p>
+</section>
