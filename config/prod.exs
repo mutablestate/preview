@@ -9,6 +9,7 @@ use Mix.Config
 config :preview, Preview.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "example.com"]
+  cache_static_manifest: "priv/static/manifest.json"
 
 # ## SSL Support
 #
