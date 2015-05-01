@@ -34,11 +34,7 @@ defmodule Preview.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_live_reload, "~> 0.3.3"},
      {:cowboy, "~> 1.0"},
-<<<<<<< HEAD
-     {:comeonin, "~> 0.7"},
-=======
      {:comeonin, "~> 0.8"},
->>>>>>> update phoenix to 0.12 and bump deps
      {:mailgun, "~> 0.0.1"},
      {:csvlixir, "~> 1.0.0"}]
   end
