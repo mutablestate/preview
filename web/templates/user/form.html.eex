@@ -3,7 +3,7 @@
   <%= text_input f, :email %>
 
   <label>Password</label>
-  <%= text_input f, :password %>
+  <%= password_input f, :password %>
 
   <%= submit "Submit" %>
 <% end %>
