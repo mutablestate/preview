@@ -3,7 +3,7 @@
     <div class="hero-inner">
       <div class="hero-copy">
         <h1>Preview</h1>
-        <p>Phoenix 0.11.0 starter app built using the Elixir Language and the Bourbon family</p>
+        <p>Phoenix 0.12.0 starter app built using the Elixir Language and the Bourbon family</p>
       </div>
       <%= render Preview.SignupView, "form.html", changeset: @changeset,
                                      action: signup_path(@conn, :create) %>
