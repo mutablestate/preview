@@ -34,8 +34,6 @@ defmodule Preview.Mixfile do
      {:postgrex, ">= 0.0.0"},
      {:phoenix_live_reload, "~> 0.3"},
      {:cowboy, "~> 1.0"},
-     {:postgrex, ">= 0.0.0"},
-     {:phoenix_live_reload, "~> 0.3"},
      {:comeonin, "~> 0.7"},
      {:mailgun, "~> 0.0.1"},
      {:csvlixir, "~> 1.0.0"}]
