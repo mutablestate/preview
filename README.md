@@ -3,7 +3,7 @@
 Status](https://travis-ci.org/mutablestate/preview.svg?branch=master "Build
 Status")](http://travis-ci.org/mutablestate/preview)
 
-A Phoenix Framework v0.11.0 pre-launch example application.
+A Phoenix Framework v0.12.0 pre-launch example application.
 
 Use as a placeholder to promote an upcoming site and gauge interest by collecting email addresses.
 
@@ -93,8 +93,8 @@ Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to 
 
 ## Deployment guides
 
-- [Official Guide](http://www.phoenixframework.org/v0.11.0/docs/deployment)
-- [Official Advanced Guide](http://www.phoenixframework.org/v0.11.0/docs/advanced-deployment)
+- [Official Guide](http://www.phoenixframework.org/v0.12.0/docs/deployment)
+- [Official Advanced Guide](http://www.phoenixframework.org/v0.12.0/docs/advanced-deployment)
 
 ## Development notes
 
@@ -104,7 +104,7 @@ Click `Login` to enter your admin details (located in `/priv/repo/seeds.ex`) to 
 ## Goals
 
 - An opinionated starting point to develop Elixir / Phoenix sites
-- Use the latest stable Phoenix release (currently at 0.11.0)
+- Use the latest stable Phoenix release (currently at 0.12.0)
 - Discover, learn and have fun!
 
 ## Contributing
