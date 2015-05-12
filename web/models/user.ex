@@ -1,6 +1,7 @@
 defmodule Preview.User do
   use Preview.Web, :model
 
+  import Ecto.Query
   alias Preview.User
   alias Preview.Repo
   alias Preview.Authenticate
@@ -21,7 +22,7 @@ defmodule Preview.User do
   If `params` are nil, an invalid changeset is returned
   with no validation performed.
   """
-  def changeset(model, params \\ nil) do
+  def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> validate_format(:email, ~r/@/)
