@@ -6,39 +6,47 @@ defmodule Preview.CsvHelperTest do
     defstruct id: "", email: ""
   end
 
-  # valid_header?/2
-  test "a list of atoms defined in the module struct is valid" do
-    defined_atoms = [:id, :email]
+  setup context do
+    context = Dict.put(context, :headers, [:id, :email])
+    context = Dict.put(context, :records, [%Sith{email: "darthmaul@example.com", id: 1}, %Sith{email: "emperor@example.com", id: 2}])
+    {:ok, context}
+  end
 
-    assert CSV.valid_headers?(defined_atoms, Sith) == true
+  ## valid_header?/2
+  test "a list of atoms defined in the module struct is valid", context do
+    assert CSV.valid_headers?(context.headers, Sith) == true
   end
 
   test "a list containing an undefined atom in the module struct is invalid" do
-    undefined_atoms = [:id, :email, :username]
+    undefined_atom = [:id, :email, :username]
 
-    assert CSV.valid_headers?(undefined_atoms, Sith) == false
+    assert CSV.valid_headers?(undefined_atom, Sith) == false
   end
 
   test "a list containing a string causes an error" do
-    defined_atom_with_string = [:id, "email"]
+    invalid_type = [:id, "email"]
 
-    assert_raise ArgumentError, "Header must only contain atoms pre-defined in the passed module struct", fn ->
-      CSV.valid_headers?(defined_atom_with_string, Sith)
+    assert_raise ArgumentError, "Header must contain atoms pre-defined in the passed module struct", fn ->
+      CSV.valid_headers?(invalid_type, Sith)
     end
   end
 
-  # generate_csv/3
-  test "generates csv content with headers by default" do
-    records = [%Sith{email: "darthmaul@example.com", id: 1}, %Sith{email: "emperor@example.com", id: 2}]
-    headers = [:id, :email]
-
-    assert CSV.generate_csv(records, headers) == "id,email\n1,darthmaul@example.com\n2,emperor@example.com"
+  ## generate_csv/3
+  test "generates csv content with headers by default", context do
+    assert CSV.generate_csv(context.records, context.headers) == "id,email\n1,darthmaul@example.com\n2,emperor@example.com\n"
   end
 
-  test "generates csv content without headers" do
-    records = [%Sith{email: "darthmaul@example.com", id: 1}, %Sith{email: "emperor@example.com", id: 2}]
-    headers = [:id, :email]
+  test "generates csv content without headers", context do
+    assert CSV.generate_csv(context.records, context.headers, false) == "1,darthmaul@example.com\n2,emperor@example.com\n"
+  end
 
-    assert CSV.generate_csv(records, headers, false) == "1,darthmaul@example.com\n2,emperor@example.com"
+  ## header_row/1
+  test "header row", context do
+    assert CSV.header_row(context.headers) == "id,email\n"
+  end
+
+  ## data_rows/2
+  test "data rows", context do
+    assert CSV.data_rows(context.records, context.headers) == "1,darthmaul@example.com\n2,emperor@example.com\n"
   end
 end

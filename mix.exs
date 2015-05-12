@@ -29,13 +29,14 @@ defmodule Preview.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.12"},
-     {:phoenix_ecto, "~> 0.3"},
+    [{:phoenix, "~> 0.13"},
+     {:phoenix_live_reload, "~> 0.4"},
+     {:phoenix_ecto, "~> 0.4"},
+     {:phoenix_html, "~> 1.0"},
      {:postgrex, ">= 0.0.0"},
-     {:phoenix_live_reload, "~> 0.3.3"},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 0.8"},
-     {:mailgun, "~> 0.0.1"},
-     {:csvlixir, "~> 1.0.0"}]
+     {:comeonin, "~> 0.9"},
+     {:mailgun, "~> 0.0.2"},
+     {:csvlixir, "~> 2.0.0"}]
   end
 end
