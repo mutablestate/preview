@@ -35,8 +35,8 @@ defmodule Preview.CsvHelper do
   @spec generate_csv(list(map), [atom], boolean) :: String.t
   def generate_csv(records, headers, return_headers \\ true) do
     case return_headers do
-      true -> header_row(headers) <> data_rows(records, headers)
-      _ -> data_rows(records, headers)
+      true -> header_row(headers) <> data_rows(records)
+      _ -> data_rows(records)
     end
   end
 
@@ -46,22 +46,20 @@ defmodule Preview.CsvHelper do
     |> CSVLixir.write_row
   end
 
-  def data_rows(records, headers) do
+  def data_rows(records) do
     records
-    |> Enum.map(fn record -> Map.take(record, headers) end)
-    |> fetch_values(headers)
+    |> list_rows
     |> CSVLixir.write
     |> Enum.to_list
     |> Enum.join
   end
 
-  def fetch_values(rows, headers) do
-    rows
-    |> Enum.map(fn row ->
-        Enum.map(headers, fn header ->
-          Map.fetch!(row, header)
-        end)
-      end)
+  defp list_rows(records) do
+    records
+    |> Enum.map(fn record -> Map.from_struct(record)
+      |> Map.values
+      |> Enum.reverse
+    end)
   end
 
   @doc """

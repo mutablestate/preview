@@ -47,6 +47,6 @@ defmodule Preview.CsvHelperTest do
 
   ## data_rows/2
   test "data rows", context do
-    assert CSV.data_rows(context.records, context.headers) == "1,darthmaul@example.com\n2,emperor@example.com\n"
+    assert CSV.data_rows(context.records) == "1,darthmaul@example.com\n2,emperor@example.com\n"
   end
 end
