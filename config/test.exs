@@ -15,8 +15,8 @@ config :preview, Preview.Repo,
   username: "postgres",
   password: "postgres",
   database: "preview_test",
-  size: 1,
-  max_overflow: false
+  pool: Ecto.Adapters.SQL.Sandbox, # Use a sandbox for transactional testing
+  size: 1
 
 # Configure mailgun
 config :preview,
