@@ -3,8 +3,6 @@ defmodule Preview.UserController do
 
   alias Preview.User
 
-  plug :action
-
   def login(conn, _params) do
     changeset = User.changeset(%User{})
     render conn, "login.html", changeset: changeset
@@ -22,7 +20,7 @@ defmodule Preview.UserController do
           conn
           |> put_flash(:error, message)
           |> redirect to: login_path(conn, :login)
-        {:ok, user} ->
+        {:ok, _} ->
           conn
           |> put_flash(:success, "Welcome #{email}!")
           |> put_session(:email, email)

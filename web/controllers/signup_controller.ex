@@ -7,7 +7,6 @@ defmodule Preview.SignupController do
   alias Preview.CsvHelper
 
   plug :scrub_params, "signup" when action in [:create]
-  plug :action
 
   def index(conn, _params) do
     session_email = get_session(conn, :email)
@@ -35,7 +34,6 @@ defmodule Preview.SignupController do
       |> put_resp_content_type("text/csv")
       |> put_resp_header("content-disposition", "attachment; filename=#{csv_filename}")
       |> send_file(200, csv_filename)
-
     else
       IO.puts("Error: headers are invalid")
       conn

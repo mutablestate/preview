@@ -3,8 +3,6 @@ defmodule Preview.PageController do
 
   alias Preview.Signup
 
-  plug :action
-
   def index(conn, _params) do
     changeset = Signup.changeset(%Signup{})
 
