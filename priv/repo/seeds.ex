@@ -1,4 +1,4 @@
-# mix run seeds.ex
+# mix run priv/repo/seeds.ex
 
 user = %{
          email: "yoda@example.com",
