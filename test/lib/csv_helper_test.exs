@@ -3,12 +3,18 @@ defmodule Preview.CsvHelperTest do
   alias Preview.CsvHelper, as: CSV
 
   defmodule Sith do
-    defstruct id: "", email: ""
+    defstruct id: "", email: "", updated_at: ""
   end
 
   setup context do
     context = Dict.put(context, :headers, [:id, :email])
-    context = Dict.put(context, :records, [%Sith{email: "darthmaul@example.com", id: 1}, %Sith{email: "emperor@example.com", id: 2}])
+    context = Dict.put(context, :records,
+      [
+        %Sith{email: "darthmaul@example.com", id: 1, updated_at: "time"},
+        %Sith{email: "emperor@example.com", id: 2, updated_at: "time"}
+      ]
+    )
+
     {:ok, context}
   end
 
@@ -47,6 +53,6 @@ defmodule Preview.CsvHelperTest do
 
   ## data_rows/2
   test "data rows", context do
-    assert CSV.data_rows(context.records) == "1,darthmaul@example.com\n2,emperor@example.com\n"
+    assert CSV.data_rows(context.records, context.headers) == "1,darthmaul@example.com\n2,emperor@example.com\n"
   end
 end

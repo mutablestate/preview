@@ -11,13 +11,13 @@ defmodule Preview.CsvHelper do
       keys = fetch_keys(module)
 
       headers
-      |> Enum.all?(fn header -> Enum.member?(keys, header) end)
+      |> Enum.all?(fn header -> header in keys end)
     else
       raise ArgumentError, message: "Header must contain atoms pre-defined in the passed module struct"
     end
   end
 
-  defp fetch_keys(module) do
+  def fetch_keys(module) do
     struct(module)
     |> Map.keys
     |> List.delete_at(0)
@@ -35,8 +35,8 @@ defmodule Preview.CsvHelper do
   @spec generate_csv(list(map), [atom], boolean) :: String.t
   def generate_csv(records, headers, return_headers \\ true) do
     case return_headers do
-      true -> header_row(headers) <> data_rows(records)
-      _ -> data_rows(records)
+      true -> header_row(headers) <> data_rows(records, headers)
+      _ -> data_rows(records, headers)
     end
   end
 
@@ -46,19 +46,17 @@ defmodule Preview.CsvHelper do
     |> CSVLixir.write_row
   end
 
-  def data_rows(records) do
+  def data_rows(records, headers) do
     records
-    |> list_rows
+    |> filter_columns(headers)
     |> CSVLixir.write
     |> Enum.to_list
     |> Enum.join
   end
 
-  defp list_rows(records) do
-    records
-    |> Enum.map(fn record -> Map.from_struct(record)
-      |> Map.values
-      |> Enum.reverse
+  def filter_columns(records, headers) do
+    Enum.map(records, fn record ->
+      headers |> Enum.map &(Map.get(record, &1))
     end)
   end
 
@@ -74,12 +72,6 @@ defmodule Preview.CsvHelper do
   end
 
   defp timestamp do
-    :erlang.now
-    |> :calendar.now_to_universal_time
-    |> :calendar.datetime_to_gregorian_seconds
-    |> to_epoch_time
-  end
-  defp to_epoch_time(gregorian_seconds) do
-    (gregorian_seconds) -719528*24*3600
+    :erlang.system_time(:seconds)
   end
 end
