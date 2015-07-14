@@ -31,12 +31,12 @@ defmodule Preview.Mixfile do
   defp deps do
     [{:phoenix, "~> 0.14"},
      {:phoenix_live_reload, "~> 0.4"},
-     {:phoenix_ecto, "~> 0.4"},
-     {:phoenix_html, "~> 1.1"},
+     {:phoenix_ecto, "~> 0.5"},
+     {:phoenix_html, "~> 1.2"},
      {:postgrex, ">= 0.0.0"},
      {:cowboy, "~> 1.0"},
-     {:comeonin, "~> 0.9"},
-     {:mailgun, "~> 0.0.2"},
+     {:comeonin, "~> 1.0"},
+     {:mailgun, "~> 0.1"},
      {:csvlixir, "~> 2.0.0"}]
   end
 end
