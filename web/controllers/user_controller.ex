@@ -12,10 +12,8 @@ defmodule Preview.UserController do
     email    = user_params["email"]
     password = user_params["password"]
 
-    if login_params_valid?(email, password) do
-      user = User.letmein(email, password)
-
-      case user do
+    if required_params?(email, password) do
+      case User.letmein(email, password) do
         {:error, message} ->
           conn
           |> put_flash(:error, message)
@@ -33,9 +31,9 @@ defmodule Preview.UserController do
     end
   end
 
-  def login_params_valid?(email, ""),       do: false
-  def login_params_valid?("", password),    do: false
-  def login_params_valid?(email, password), do: true
+  defp required_params?(_, ""), do: false
+  defp required_params?("", _), do: false
+  defp required_params?(_, _),  do: true
 
   def logout(conn, _params) do
     conn
