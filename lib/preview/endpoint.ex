@@ -1,6 +1,8 @@
 defmodule Preview.Endpoint do
   use Phoenix.Endpoint, otp_app: :preview
 
+  socket "/ws", Preview.UserSocket
+
   # Serve at "/" the given assets from "priv/static" directory
   plug Plug.Static,
     at: "/", from: :preview,
@@ -9,6 +11,7 @@ defmodule Preview.Endpoint do
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
+    socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
   end
@@ -26,8 +29,7 @@ defmodule Preview.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_preview_key",
-    signing_salt: "W3ASBfEZ",
-    encryption_salt: "ocDMn7FS"
+    signing_salt: "W3ASBfEZ"
 
-  plug :router, Preview.Router
+  plug Preview.Router
 end
