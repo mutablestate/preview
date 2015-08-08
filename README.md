@@ -3,7 +3,7 @@
 Status](https://travis-ci.org/mutablestate/preview.svg?branch=master "Build
 Status")](http://travis-ci.org/mutablestate/preview)
 
-A Phoenix Framework v0.15.0 pre-launch example application.
+A Phoenix Framework v0.16.0 pre-launch example application.
 
 Use as a placeholder to promote an upcoming site and gauge interest by collecting email addresses.
 
@@ -52,7 +52,7 @@ Click `Login` to enter your admin details (located in `priv/repo/seeds.ex`) to v
 
   Customize the welcome email message sent to signups by changing these lines
 
-  ```elixir    
+  ```elixir
   # lib/preview/mailer.ex
 
   @from : "yoda@example.com"
@@ -69,8 +69,8 @@ Click `Login` to enter your admin details (located in `priv/repo/seeds.ex`) to v
 
 ## Deployment guides
 
-- [Official Guide](http://www.phoenixframework.org/v0.15.0/docs/deployment)
-- [Official Advanced Guide](http://www.phoenixframework.org/v0.15.0/docs/advanced-deployment)
+- [Official Guide](http://www.phoenixframework.org/v0.16.0/docs/deployment)
+- [Official Advanced Guide](http://www.phoenixframework.org/v0.16.0/docs/advanced-deployment)
 
 ## Development notes
 
