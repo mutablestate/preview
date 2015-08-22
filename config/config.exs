@@ -10,7 +10,7 @@ config :preview, Preview.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "Wwrg1wMeIZuLP4RuNYItKxk1XHM8HeMPI46Y9Pb/3Zsuvcc+xGagcm9QX6GL662k",
-  render_errors: [default_format: "html"],
+  render_errors: [accepts: "html"],
   pubsub: [name: Preview.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
