@@ -3,7 +3,7 @@ defmodule Preview.Mixfile do
 
   def project do
     [app: :preview,
-     version: "0.0.1",
+     version: "0.1.0",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix] ++ Mix.compilers,
@@ -29,7 +29,7 @@ defmodule Preview.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.17"},
+    [{:phoenix, "~> 1.0"},
      {:phoenix_ecto, "~> 0.8"},
      {:phoenix_html, "~> 2.0"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
