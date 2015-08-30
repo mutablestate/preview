@@ -3,7 +3,7 @@
 Status](https://travis-ci.org/mutablestate/preview.svg?branch=master "Build
 Status")](http://travis-ci.org/mutablestate/preview)
 
-A Phoenix Framework v0.17.0 pre-launch example application.
+A Phoenix Framework 1.0 pre-launch example application.
 
 Use as a placeholder to promote an upcoming site and gauge interest by collecting email addresses.
 
@@ -67,10 +67,9 @@ Click `Login` to enter your admin details (located in `priv/repo/seeds.ex`) to v
 
   Visit [http://localhost:4000](http://localhost:4000) in your browser
 
-## Deployment guides
+## Deployment
 
-- [Official Guide](http://www.phoenixframework.org/v0.17.0/docs/deployment)
-- [Official Advanced Guide](http://www.phoenixframework.org/v0.17.0/docs/advanced-deployment)
+- [Official Guide](http://www.phoenixframework.org/docs/deployment)
 
 ## Development notes
 
@@ -92,7 +91,7 @@ Click `Login` to enter your admin details (located in `priv/repo/seeds.ex`) to v
 
 ## Status
 
-Preview is not ready for prime-time and Phoenix is not yet at 1.0, however, we encourage you to try it out and give us your feedback.
+Congratulations to the Phoenix team on hitting 1.0!
 
 ## License
 MIT
