@@ -11,10 +11,6 @@ The application stores new signup email addresses in a Postgresql database and s
 
 Click `Login` to enter your admin details (located in `priv/repo/seeds.ex`) to view or download a CSV file of signed up emails.
 
-## Demo
-
-[http://preview.elixircnx.com](http://preview.elixircnx.com)
-
 ## Setup
 
 1. Add config listed environment variables to `.profile`
